@@ -1,0 +1,60 @@
+{
+  "pages":[
+    "pages/index/index",
+    "pages/index/login",
+    "pages/index/error",
+    "pages/index/userType",
+    "pages/index/allot",
+    "pages/index/foremanallot",
+
+    "pages/boss/index",
+    "pages/boss/on",
+    "pages/boss/will",
+    "pages/boss/end",
+    "pages/boss/add",
+    "pages/boss/addBySecStep",
+    "pages/boss/addByThiStep",
+    "pages/boss/checkProject",
+    "pages/boss/checkGoods",
+
+    "pages/foreman/index",
+    "pages/foreman/on",
+    "pages/foreman/will",
+    "pages/foreman/end",
+    "pages/foreman/checkProject",
+    "pages/foreman/checkGoods",
+    "pages/foreman/sign",
+    "pages/foreman/report",
+    "pages/foreman/edit",
+    "pages/foreman/preview",
+    "pages/foreman/check",
+
+    "pages/supervisor/index",
+    "pages/supervisor/on",
+    "pages/supervisor/will",
+    "pages/supervisor/end",
+    "pages/supervisor/add",
+
+    "pages/designer/index",
+    "pages/designer/on",
+    "pages/designer/will",
+    "pages/designer/end",
+    "pages/designer/add",
+
+    "pages/purchase/index",
+    "pages/purchase/on",
+    "pages/purchase/will",
+    "pages/purchase/end",
+    "pages/purchase/add",
+    
+    "pages/help/index",
+
+    "pages/logs/logs"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#35b3ca",
+    "navigationBarTitleText": "项目管理",
+    "navigationBarTextStyle":"#fff"
+  }
+}

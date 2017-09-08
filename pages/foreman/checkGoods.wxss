@@ -1,0 +1,123 @@
+/* pages/boss/add.wxss */
+.msg {
+  width: 100%;
+  height: auto;
+  background: #fff;
+  font-size: 16px;
+  margin: 0 auto;
+  margin-top: 30px;
+  padding: 30px;
+  box-sizing: border-box;
+}
+.msg text {
+  width: 100%;
+  font-size: 16px;
+  height:30px;
+  line-height: 30px;
+  display: block;
+}
+.midAct {
+  margin-top:0px;
+}
+.swiper-tab{  
+    width: 100%;  
+    border-bottom: 4rpx solid #35b3ca;  
+    border-top: 1rpx solid #fff;  
+    border-left: 1rpx solid #35b3ca;  
+    box-sizing: border-box;
+    text-align: center;  
+    line-height: 40rpx;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 999;
+}  
+.swiper-tab-list{  
+    line-height: 40px;
+    font-size: 25rpx;  
+    display: inline-block;  
+    width: 20%;  
+    color: #35b3ca;
+    background: #fff;
+    border-right: 1rpx solid #35b3ca;
+    box-sizing: border-box;
+}  
+scroll-view {
+  width: 100%;
+  background: #fff;
+  font-size: 16px;
+  margin: 0 auto;
+  margin-top: 40px;
+  display:block;
+  box-sizing: border-box;
+}
+.swiper-box {
+  background: #fff;
+}
+.on{ 
+    color: #fff;  
+    background: #35b3ca;
+}  
+scroll-view .ul {
+  width: 100%;
+
+}
+.table {
+  border:1px solid #dadada;
+  border-right: 0;
+  border-bottom: 0;
+  width: 100%;
+}
+.ul-title {
+  width: 100%;
+  height:35px;
+  line-height: 35px;
+  font-weight: bold;
+  background: #aaa;
+  color: #fff;
+  font-size: 16px;
+  border-bottom: 1px solid #ccc
+}
+.ul-cate {
+  width: 100%;
+  height:35px;
+  line-height: 35px;
+  font-weight: bold;
+  background: #ccc;
+  font-size: 14px;
+}
+.ul {
+  width: 100%;
+  min-height: 25px;
+  display: flex;
+  justify-content: space-between;
+  word-wrap : break-word ;
+  
+}
+.ul li{
+  min-height: 25px;
+  line-height: 25px;
+  border-bottom: 1px solid #dadada;
+  border-right: 1px solid #dadada;
+  text-align: center;
+  font-size: 14px;
+  word-wrap : break-word ;
+}
+.ul .goodsNo{
+  width:30%;
+}
+.ul .title{
+  width:30%;
+}
+.ul .num{
+  width:10%;
+}
+.ul .unit{
+  width:10%;
+}
+.ul .region{
+  width:20%;
+}
+.ul .supply{
+  width:20%;
+}

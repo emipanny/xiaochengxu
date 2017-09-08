@@ -1,0 +1,47 @@
+/**index.wxss**/
+#project{
+  width: 98%;
+  height: auto;
+  margin: 20px auto;
+}
+#project li {
+  width: 100%;
+  background: #fff; 
+  padding:0 20px;
+  margin-bottom: 10px;
+  box-sizing:border-box;
+  height: 80px;
+  display: block;
+}
+#project li .text {
+  float: right;
+  height: 80px;
+  line-height: 80px;
+  text-align: right;
+}
+#project li image {
+  float: left;
+  width: 50px;
+  height: 50px;
+  margin: 15px 0;
+}
+.userinfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.userinfo-avatar {
+  width: 128rpx;
+  height: 128rpx;
+  margin: 20rpx;
+  border-radius: 50%;
+}
+
+.userinfo-nickname {
+  color: #aaa;
+}
+
+.usermotto {
+  margin-top: 100px;
+}

@@ -1,0 +1,27 @@
+<!--pages/boss/add.wxml-->
+<import src="addHeader.wxml"/>
+<template is="header" data="{{...header}}"/>
+<view class="msg">
+  <text>项目名称</text>
+  <input id='title' value="{{title}}" bindinput="inputchange" />
+  <text>开工时间</text>
+  <picker mode="date" id="startTime" value="{{date}}" start="2015-09-01" end="2017-09-01" bindchange="bindDateChange">
+    <view class="picker">
+      {{date}}
+    </view>
+  </picker>
+  <text>工期</text>
+  <input id='schedule' type='number' bindinput="inputchange" />
+  <text>金额</text>
+  <input id='amount'  type='text' bindinput="inputchange" />
+  <text>位置</text>
+  <text id='address'  bindtap="getPosition">{{address}}</text>
+  <text>打卡范围</text>
+  <text class="light">（成员打卡地址与上一项位置之间的距离，超出位置成员将不能打卡。单位米）</text>
+  <input id='distance'  type='text' bindinput="inputchange" />
+  <text>详细地址</text>
+  <input id='detailed_address'  bindinput="inputchange"/>
+  <text>备注</text>
+  <textarea id="content" bindinput="inputchange" />
+  <view class="midAct" hover-class="midActHover" bindtap="nextStep">下一步</view>
+</view>

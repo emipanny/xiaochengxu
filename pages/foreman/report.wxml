@@ -1,0 +1,21 @@
+<!--pages/foreman/report.wxml-->
+<view class="stage" wx:for="{{stage}}" wx:if="{{list.data.length > 0}}" wx:for-item="list" wx:key="rg">
+  <view class="stageName">{{list.title}}</view>
+  <view class="quota" wx:if="{{list.data.length > 0}}">
+    <view class="list {{quota.isSave ? 'save' : ''}}" wx:for="{{list.data}}"   wx:for-item="quota" wx:key="qg"  bindtap="{{quota.isSave ? 'noAct' : 'act'}}" data-data="{{quota}}" data-order="{{quota.order}}" data-stage="{{list.title}}">
+      <view class="listA">
+        <view class="order">{{quota.order}}</view>
+        <view class="goodsNo">{{quota.goodsNo}}</view>
+        <view class="endTime">-{{quota.endTime}}</view>
+        <view class="startTime">{{quota.startTime}}</view>
+      </view>
+      <view class="listB">
+        <view class="title">dsfsdfsdfd{{quota.title}}</view>
+        <view class="num">{{quota.num}}{{quota.unit}}</view>
+      </view>
+      <view class="check" wx:if="{{quota.isSave}}"></view>
+      <view class="clear"></view>
+    </view>
+  </view>
+</view>
+

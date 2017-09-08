@@ -1,0 +1,6 @@
+<!--pages/index/error.wxml-->
+<view class="warningImg">
+  <image src='http://www.envisioneer.cn/assets/web/images/xcx/warning.png' ></image>
+</view>
+<view class="warning-title"><text>发生错误：{{errorCode}}</text></view>
+<view class="warning-msg"><text>{{errorMsg}}</text></view>

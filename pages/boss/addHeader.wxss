@@ -1,0 +1,45 @@
+.header {
+  width: 700rpx;
+  height: 100rpx;
+  padding-top: 150rpx;
+  margin: 0 auto;
+}
+.step {
+  width: 500rpx;
+  height: 40rpx;
+  margin: 0 auto;
+}
+.step li {
+  float: left;
+  background: #999999;
+}
+.step .stepIco {
+  width: 40rpx;
+  height: 40rpx;
+  border-radius: 20rpx;
+}
+.step .stepLine {
+  width: 190rpx;
+  height: 4rpx;
+  margin: 18rpx 0;
+}
+.stepText {
+  width:650rpx;
+  margin: 0 auto;
+  margin-top: 20rpx;
+}
+.stepText li {
+  float: left;
+  color: #999999;
+  text-align: center;
+  font-size: 14px;
+}
+.stepText .textFist {
+  width: 30%;
+}
+.stepText .textSec {
+  width: 40%;
+}
+.stepText .textThi {
+  width: 30%;
+}

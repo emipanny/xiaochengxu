@@ -1,0 +1,8 @@
+<!--pages/boss/add.wxml-->
+<import src="addHeader.wxml"/>
+<template is="header" data="{{...header}}"/>
+
+<view class="msg">
+  <text>创建完成</text>
+  <view class="midAct" hover-class="midActHover" bindtap="allot">分配人员</view>
+</view>

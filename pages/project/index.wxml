@@ -1,0 +1,30 @@
+<!--index.wxml-->
+
+<view id="projectList">
+  <view id="project-text">
+    <li>最近完成</li>
+    <li>进行中的任务</li>
+    <li>即将开始</li>
+  </view>
+	<view id="project-Count">
+    <li>{{countEnd}}</li>
+    <li>{{countOn}}</li>
+    <li>{{countWill}}</li>
+  </view>
+</view>
+<view id="project">
+  <li class="fl" bindtap="goProjects"><image src='http://www.envisioneer.cn/assets/web/images/xcx/myproject.jpg' ></image><view class="text">我的项目</view></li>
+  <li class="fr" bindtap="goProgress"><image src='http://www.envisioneer.cn/assets/web/images/xcx/progress.jpg' ></image><view class="text">进度更新</view></li>
+  <li class="fl" bindtap="goAddProject"><image src='http://www.envisioneer.cn/assets/web/images/xcx/creatproject.jpg' ></image><view class="text">新建项目</view></li>
+  <li class="fr" bindtap="goHelp"><image src='http://www.envisioneer.cn/assets/web/images/xcx/help.jpg' ></image><view class="text">帮助手册</view></li>
+  <view class="clear"></view>
+</view>
+<view class="container">
+  <view  bindtap="bindViewTap" class="userinfo">
+    <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
+    <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+  </view>
+  <view class="usermotto">
+    <text class="user-motto">{{motto}}</text>
+  </view>
+</view>

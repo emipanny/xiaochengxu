@@ -1,0 +1,28 @@
+
+.msg {
+  width: 100%;
+  height: auto;
+  background: #fff;
+  font-size: 16px;
+  margin: 0 auto;
+  margin-top: 30px;
+  padding: 30px;
+  box-sizing: border-box;
+}
+.msg text {
+  width: 100%;
+  font-size: 16px;
+  line-height: 35px;
+  height: 35px;
+  display: block;
+}
+.msg .light {
+  text-align: center;
+  border: 1px solid #eee;
+  margin: 10px auto;
+}
+.midAct {
+  width: 100%;
+  margin-top:50px;
+  font-size: 16px;
+}

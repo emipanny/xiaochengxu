@@ -1,0 +1,7 @@
+<!--pages/boss/add.wxml-->
+<view class="msg">
+  <text>项目名称：</text>
+  <text>{{title}}</text>
+  <button wx:if="{{userType == 1}}" open-type="share">分享给相关人员</button>
+  <view wx:if="{{userType != 1}}" class="midAct" hover-class="midActHover" bindtap="addProject">把该项目添加到我的项目中</view>
+</view>

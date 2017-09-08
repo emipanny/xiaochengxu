@@ -1,0 +1,229 @@
+<view class="edit" style="overflow-y:{{editShow ? 'auto' : 'hidden'}}; height:{{winHeight}}px">
+  <view class="content">
+    <view class="text">顺序</view>
+    <input value="{{info.order}}" type="number" bindinput="orderChange" />
+  </view>
+  <view class="content">
+    <view class="text">建筑辅料</view>
+    <view class="value" bindtap="buildShow">编辑</view>
+    <view class="clear"></view>
+    <view class="mList">
+      <view class="list"  wx:for="{{buildSure}}"  wx:for-item="quota" wx:key="qg">
+        <view class="listA">
+          <view class="goodsNo">{{quota.goodsNo}}</view>
+          <view class="startTime">
+            <view class="section">
+              <picker mode="time" value="{{quota.time}}" start="00:00" end="23:59"  data-id="{{quota.goodsNo}}" bindchange="buildbindTimeChange">
+                <view class="picker">
+                 {{quota.time ? quota.time : "入场时间"}} 
+                </view>
+              </picker>
+            </view>
+            <view class="section">
+              <picker mode="date" value="{{quota.date}}" start="2015-09-01" end="2030-09-01" data-id="{{quota.goodsNo}}" bindchange="buildbindDateChange">
+                <view class="picker">
+                  {{quota.date ? quota.date : "入场日期"}} 
+                </view>
+              </picker>
+            </view>
+          </view>
+        </view>
+        <view class="listB">
+          <view class="title">{{quota.title}}</view>
+          <view class="num">{{quota.num}}{{quota.unit}}</view>
+        </view>
+        <view class="listC">
+          <view class="editUser" bindtap="editUser" data-id ="{{quota.goodsNo}}" data-classname="build">编辑采购员</view>
+          <view class="classname"  wx:for="{{quota.user}}"  wx:for-item="user" wx:key="users" wx:if="{{quota.user && quota.user.length > 0}}">
+            {{user.nickname}}-{{user.realname}}-{{user.phone}}
+          </view>
+        </view>
+        <view class="clear"></view>
+      </view>
+    </view>
+  </view>
+  <view class="content">
+    <view class="text">家居软装</view>
+    <view class="value" bindtap="softShow">编辑</view>
+    <view class="clear"></view>
+    <view class="mList">
+      <view class="list"  wx:for="{{softSure}}"  wx:for-item="quota" wx:key="qg">
+        <view class="listA">
+          <view class="goodsNo">{{quota.goodsNo}}</view>
+          <view class="startTime">
+            <view class="section">
+              <picker mode="time" value="{{quota.time}}" start="00:00" end="23:59"  data-id="{{quota.goodsNo}}" bindchange="softbindTimeChange">
+                <view class="picker">
+                 {{quota.time ? quota.time : "入场时间"}} 
+                </view>
+              </picker>
+            </view>
+            <view class="section">
+              <picker mode="date" value="{{quota.date}}" start="2015-09-01" end="2030-09-01" data-id="{{quota.goodsNo}}" bindchange="softbindDateChange">
+                <view class="picker">
+                  {{quota.date ? quota.date : "入场日期"}} 
+                </view>
+              </picker>
+            </view>
+          </view>
+        </view>
+        <view class="listB">
+          <view class="title">{{quota.title}}</view>
+          <view class="num">{{quota.num}}{{quota.unit}}</view>
+        </view>
+        <view class="listC">
+          <view class="editUser" bindtap="editUser" data-id ="{{quota.goodsNo}}" data-classname="soft">编辑采购员</view>
+          <view class="classname"  wx:for="{{quota.user}}"  wx:for-item="user" wx:key="users" wx:if="{{quota.user && quota.user.length > 0}}">
+            {{user.nickname}}-{{user.realname}}-{{user.phone}}
+          </view>
+        </view>
+        <view class="clear"></view>
+      </view>
+    </view>
+  </view>
+  <view class="content">
+    <view class="text">装修主材</view>
+    <view class="value" bindtap="materialShow">编辑</view>
+    <view class="clear"></view>
+    <view class="mList">
+      <view class="list"  wx:for="{{materialSure}}"  wx:for-item="quota" wx:key="qg">
+        <view class="listA">
+          <view class="goodsNo">{{quota.goodsNo}}</view>
+          <view class="startTime">
+            <view class="section">
+              <picker mode="time" value="{{quota.time}}" start="00:00" end="23:59"  data-id="{{quota.goodsNo}}" bindchange="materialbindTimeChange">
+                <view class="picker">
+                 {{quota.time ? quota.time : "入场时间"}} 
+                </view>
+              </picker>
+            </view>
+            <view class="section">
+              <picker mode="date" value="{{quota.date}}" start="2015-09-01" end="2030-09-01" data-id="{{quota.goodsNo}}" bindchange="materialbindDateChange">
+                <view class="picker">
+                  {{quota.date ? quota.date : "入场日期"}} 
+                </view>
+              </picker>
+            </view>
+          </view>
+        </view>
+        <view class="listB">
+          <view class="title">{{quota.title}}</view>
+          <view class="num">{{quota.num}}{{quota.unit}}</view>
+        </view>
+        <view class="listC">
+          <view class="editUser" bindtap="editUser" data-id ="{{quota.goodsNo}}" data-classname="material">编辑采购员</view>
+          <view class="classname"  wx:for="{{quota.user}}"  wx:for-item="user" wx:key="users" wx:if="{{quota.user && quota.user.length > 0}}">
+            {{user.nickname}}-{{user.realname}}-{{user.phone}}
+          </view>
+        </view>
+        <view class="clear"></view>
+      </view>
+    </view>
+  </view>
+  <view class="content">
+    <view class="text">开工日期</view>
+    <picker mode="date" value="{{startDate}}" class="value" start="2015-09-01" end="2030-09-01"  bindchange="startDate"> 
+        <view class="picker">
+          {{startDate ? startDate : "编辑日期"}} 
+        </view>
+    </picker>
+  </view>
+  <view class="content">
+    <view class="text">结束日期</view>
+    <picker mode="date" value="{{endDate}}" class="value" start="2015-09-01" end="2030-09-01"   bindchange="endDate"> 
+        {{endDate ? endDate : "编辑日期"}} 
+    </picker>
+  </view>
+  <view class="content">
+    <view class="text">监理交底</view>
+    <picker mode="date" value="{{supervisor_start_date}}" class="value2" start="2015-09-01" end="2030-09-01"  bindchange="supervisor_start_date"> 
+        <view class="picker">
+          {{supervisor_start_date ? supervisor_start_date : "选择日期"}} 
+        </view>
+    </picker>
+    <picker mode="time" value="{{supervisor_start_time}}" class="value3" start="00:00" end="23:59"   bindchange="supervisor_start_time"> 
+        {{supervisor_start_time ? supervisor_start_time : "选择时间"}} 
+    </picker>
+  </view>
+  <view class="content">
+    <view class="text">监理验收</view>
+    <picker mode="date" value="{{supervisor_end_date}}" class="value2" start="2015-09-01" end="2030-09-01"  bindchange="supervisor_end_date"> 
+        <view class="picker">
+          {{supervisor_end_date ? supervisor_end_date : "选择日期"}} 
+        </view>
+    </picker>
+    <picker mode="time" value="{{supervisor_end_time}}" class="value3" start="00:00" end="23:59"   bindchange="supervisor_end_time"> 
+        {{supervisor_end_time ? supervisor_end_time : "选择时间"}} 
+    </picker>
+  </view>
+  <view class="content">
+    <view class="text">设计交底</view>
+    <picker mode="date" value="{{designer_start_date}}" class="value2" start="2015-09-01" end="2030-09-01"  bindchange="designer_start_date"> 
+        <view class="picker">
+          {{designer_start_date ? designer_start_date : "选择日期"}} 
+        </view>
+    </picker>
+    <picker mode="time" value="{{designer_start_time}}" class="value3" start="00:00" end="23:59"   bindchange="designer_start_time"> 
+        {{designer_start_time ? designer_start_time : "选择时间"}} 
+    </picker>
+  </view>
+  <view class="content">
+    <view class="text">设计验收</view>
+    <picker mode="date" value="{{designer_end_date}}" class="value2" start="2015-09-01" end="2030-09-01"  bindchange="designer_end_date"> 
+        <view class="picker">
+          {{designer_end_date ? designer_end_date : "选择日期"}} 
+        </view>
+    </picker>
+    <picker mode="time" value="{{designer_end_time}}" class="value3" start="00:00" end="23:59"   bindchange="designer_end_time"> 
+        {{designer_end_time ? designer_end_time : "选择时间"}} 
+    </picker>
+  </view>
+  <view class="confirm">
+    <view class="cancl" bindtap="back">取消</view>
+    <view class="send" bindtap="send">确认</view>
+  </view>
+</view>
+<view class="materialActList" style="display:{{materialShow ? 'block' : 'none'}};  height:{{winHeight}}px">
+  <checkbox-group bindchange="materialcheckboxChange">
+    <label class="checkbox" wx:for="{{material}}" wx:key="qg" wx:for-item="es">
+      <checkbox value="{{es.goodsNo}}" name="material" checked="{{es.checked}}"/>{{es.title}}  数量：{{es.num}}{{es.unit}}
+    </label>
+  </checkbox-group>
+  <view class="confirm">
+    <view class="cancl" bindtap="editCancl">取消</view>
+    <view class="send" bindtap="materialSure">确认</view>
+  </view>
+</view>
+<view class="materialActList" style="display:{{buildShow ? 'block' : 'none'}}; height:{{winHeight}}px">
+  <checkbox-group bindchange="buildcheckboxChange">
+    <label class="checkbox" wx:for="{{build}}" wx:key="qg" wx:for-item="es">
+      <checkbox value="{{es.goodsNo}}" name="material" checked="{{es.checked}}"/>{{es.title}}  数量：{{es.num}}{{es.unit}}
+    </label>
+  </checkbox-group>
+  <view class="confirm">
+    <view class="cancl" bindtap="editCancl">取消</view>
+    <view class="send" bindtap="buildSure">确认</view>
+  </view>
+</view>
+<view class="materialActList" style="display:{{softShow ? 'block' : 'none'}}; height:{{winHeight}}px">
+  <checkbox-group bindchange="softcheckboxChange">
+    <label class="checkbox" wx:for="{{soft}}" wx:key="qg" wx:for-item="es">
+      <checkbox value="{{es.goodsNo}}" name="material" checked="{{es.checked}}"/>{{es.title}}  数量：{{es.num}}{{es.unit}}
+    </label>
+  </checkbox-group>
+  <view class="confirm">
+    <view class="cancl" bindtap="editCancl">取消</view>
+    <view class="send" bindtap="softSure">确认</view>
+  </view>
+</view>
+<view class="materialActList" style="display:{{userShow ? 'block' : 'none'}}; height:{{winHeight}}px">
+  <checkbox-group bindchange="usercheckboxChange">
+    <label class="checkbox" wx:for="{{user}}" wx:key="qg" wx:for-item="es">
+      <checkbox value="{{es.id}}" name="material" checked="{{es.checked}}"/>{{es.nickname}}  {{es.realname}} {{es.phone}}
+    </label>
+  </checkbox-group>
+  <view class="confirm">
+    <view class="cancl" bindtap="editCancl">取消</view>
+    <view class="send" bindtap="userSure" data-classname="{{userSign.classname}}" data-id="{{userSign.goodsNo}}">确认</view>
+  </view>
+</view>

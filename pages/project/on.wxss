@@ -1,0 +1,29 @@
+/* pages/project/on.wxss */
+.swiper-tab{  
+    width: 100%;  
+    border-bottom: 4rpx solid #35b3ca;  
+    border-top: 4rpx solid #35b3ca;  
+    border-left: 1rpx solid #35b3ca;  
+    box-sizing: border-box;
+    text-align: center;  
+    line-height: 40rpx;
+}  
+.swiper-tab-list{  
+    line-height: 40px;
+    font-size: 25rpx;  
+    display: inline-block;  
+    width: 33.33%;  
+    color: #35b3ca;
+    background: #fff;
+    border-right: 1rpx solid #35b3ca;
+    box-sizing: border-box;
+}  
+.on{ 
+    color: #fff;  
+    background: #35b3ca;
+}  
+  
+.swiper-box{ display: block; height: 100%; width: 100%; overflow: hidden; }  
+.swiper-box view{  
+    text-align: center;  
+}  

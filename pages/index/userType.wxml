@@ -1,0 +1,11 @@
+<!--pages/index/userType.wxml-->
+<view id="userTypeTitle">选择身份</view>
+<view id="userTypes">
+  <li class="fl" data-user-type="1" bindtap="chooseType">项目经理</li>
+  <li class="fr" data-user-type="2" bindtap="chooseType">工长</li>
+  <li class="fl" data-user-type="3" bindtap="chooseType">监理</li>
+  <li class="fr" data-user-type="4" bindtap="chooseType">设计</li>
+  <li class="fr" data-user-type="5" bindtap="chooseType">业主</li>
+  <li class="fr" data-user-type="6" bindtap="chooseType">材料员</li>
+  <view class="clear"></view>
+</view>

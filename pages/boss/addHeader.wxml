@@ -1,0 +1,17 @@
+
+<template name="header">
+  <view class="header">
+    <view class="step">
+      <li class="stepIco" style="background:{{first_class}}"></li>
+      <li class="stepLine" style="background:{{second_class}}"></li>
+      <li class="stepIco}" style="background:{{second_class}}"></li>
+      <li class="stepLine" style="background:{{third_class}}"></li>
+      <li class="stepIco" style="background:{{third_class}}"></li>
+    </view>
+    <view class="stepText">
+      <li class="textFist" style="color:{{first_text_class}}">基本信息</li>
+      <li class="textSec" style="color:{{second_text_class}}">添加详单</li>
+      <li class="textThi" style="color:{{third_text_class}}">完成</li>
+    </view>
+  </view>
+</template>

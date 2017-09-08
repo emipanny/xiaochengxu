@@ -1,0 +1,184 @@
+<!--pages/boss/add.wxml-->
+
+<view class="swiper-tab">  
+    <view class="swiper-tab-list {{currentTab==1 ? 'on' : ''}}" data-current="1" bindtap="swichNav">人工</view>  
+    <view class="swiper-tab-list {{currentTab==2 ? 'on' : ''}}" data-current="2" bindtap="swichNav">施工定额</view>  
+    <view class="swiper-tab-list {{currentTab==3 ? 'on' : ''}}" data-current="3" bindtap="swichNav">建筑辅料</view>  
+    <view class="swiper-tab-list {{currentTab==4 ? 'on' : ''}}" data-current="4" bindtap="swichNav">家居软装</view>  
+    <view class="swiper-tab-list {{currentTab==5 ? 'on' : ''}}" data-current="5" bindtap="swichNav">装修主材</view>  
+</view>  
+<scroll-view scroll-y style="height:{{winHeight}}px" hidden="{{currentTab != 1}}">
+  <view class="table" wx:for="{{artificial}}" wx:key="artificial" wx:for-item="rg">
+    <view class="ul-title">{{rg.title}}</view>
+    <view class="ul-cate">工时</view>
+    <view class="ul">
+        <li class="goodsNo">编号</li>
+        <li class="title">名称</li>
+        <li class="num">数量</li>
+        <li class="unit">单位</li>
+        <li class="region">区域</li>
+    </view>
+    <view class="ul" wx:for="{{rg.data}}"  wx:if="{{list.category == '工时'}}" wx:key="rg" wx:for-item="list" bindtap="">
+      <li class="goodsNo">{{list.goodsNo}}</li>
+      <li class="title">{{list.title}}</li>
+      <li class="num">{{list.num}}</li>
+      <li class="unit">{{list.unit}}</li>
+      <li class="region">{{list.region}}</li>
+    </view>
+    <view class="ul-cate">工费</view>
+    <view class="ul">
+        <li class="goodsNo">编号</li>
+        <li class="title">名称</li>
+        <li class="num">数量</li>
+        <li class="unit">单位</li>
+        <li class="region">区域</li>
+    </view>
+    <view class="ul" wx:for="{{rg.data}}" wx:if="{{list.category == '工费'}}" wx:key="rg" wx:for-item="list">
+        <li class="goodsNo">{{list.goodsNo}}</li>
+        <li class="title">{{list.title}}</li>
+        <li class="num">{{list.num}}</li>
+        <li class="unit">{{list.unit}}</li>
+        <li class="region">{{list.region}}</li>
+    </view>
+  </view>
+</scroll-view>
+<scroll-view  scroll-y style="height:{{winHeight}}px" hidden="{{currentTab != 2}}">
+  <view class="table" wx:for="{{quota}}" wx:key="artificial" wx:for-item="rg">
+    <view class="ul-title">{{rg.title}}</view>
+    <view class="ul-cate">套餐内</view>
+    <view class="ul">
+        <li class="goodsNo">编号</li>
+        <li class="title">名称</li>
+        <li class="num">数量</li>
+        <li class="unit">单位</li>
+        <li class="region">区域</li>
+    </view>
+    <view class="ul" wx:for="{{rg.data}}"  wx:if="{{list.category == '套餐内'}}" wx:key="rg" wx:for-item="list">
+      <li class="goodsNo">{{list.goodsNo}}</li>
+      <li class="title">{{list.title}}</li>
+      <li class="num">{{list.num}}</li>
+      <li class="unit">{{list.unit}}</li>
+      <li class="region">{{list.region}}</li>
+    </view>
+    <view class="ul-cate">增项</view>
+    <view class="ul">
+        <li class="goodsNo">编号</li>
+        <li class="title">名称</li>
+        <li class="num">数量</li>
+        <li class="unit">单位</li>
+        <li class="region">区域</li>
+    </view>
+    <view class="ul" wx:for="{{rg.data}}" wx:if="{{list.category == '增项'}}" wx:key="rg" wx:for-item="list">
+        <li class="goodsNo">{{list.goodsNo}}</li>
+        <li class="title">{{list.title}}</li>
+        <li class="num">{{list.num}}</li>
+        <li class="unit">{{list.unit}}</li>
+        <li class="region">{{list.region}}</li>
+    </view>
+  </view>
+</scroll-view>  
+<scroll-view scroll-y style="height:{{winHeight}}px" hidden="{{currentTab != 3}}">
+  <view class="table" wx:for="{{build}}" wx:key="artificial" wx:for-item="rg">
+    <view class="ul-title">{{rg.title}}</view>
+    <view class="ul-cate">套餐内</view>
+    <view class="ul">
+        <li class="goodsNo">编号</li>
+        <li class="title">名称</li>
+        <li class="num">数量</li>
+        <li class="unit">单位</li>
+        <li class="region">区域</li>
+    </view>
+    <view class="ul" wx:for="{{rg.data}}"  wx:if="{{list.category == '套餐内'}}" wx:key="rg" wx:for-item="list">
+        <li class="goodsNo">{{list.goodsNo}}</li>
+        <li class="title">{{list.title}}</li>
+        <li class="num">{{list.num}}</li>
+        <li class="unit">{{list.unit}}</li>
+        <li class="region">{{list.region}}</li>
+    </view>
+    <view class="ul-cate">增项</view>
+    <view class="ul">
+        <li class="goodsNo">编号</li>
+        <li class="title">名称</li>
+        <li class="num">数量</li>
+        <li class="unit">单位</li>
+        <li class="region">区域</li>
+    </view>
+    <view class="ul" wx:for="{{rg.data}}"  wx:if="{{list.category == '增项'}}" wx:key="rg" wx:for-item="list">
+        <li class="goodsNo">{{list.goodsNo}}</li>
+        <li class="title">{{list.title}}</li>
+        <li class="num">{{list.num}}</li>
+        <li class="unit">{{list.unit}}</li>
+        <li class="region">{{list.region}}</li>
+    </view>
+  </view>
+</scroll-view>  
+<scroll-view  scroll-y style="height:{{winHeight}}px" hidden="{{currentTab != 4}}">
+  <view class="table" wx:for="{{soft}}" wx:key="artificial" wx:for-item="rg">
+    <view class="ul-title">{{rg.title}}</view>
+    <view class="ul-cate">套餐内</view>
+    <view class="ul">
+        <li class="goodsNo">编号</li>
+        <li class="title">名称</li>
+        <li class="num">数量</li>
+        <li class="unit">单位</li>
+        <li class="region">区域</li>
+    </view>
+    <view class="ul" wx:for="{{rg.data}}" wx:if="{{list.category == '套餐内'}}" wx:key="rg" wx:for-item="list">
+        <li class="goodsNo">{{list.goodsNo}}</li>
+        <li class="title">{{list.title}}</li>
+        <li class="num">{{list.num}}</li>
+        <li class="unit">{{list.unit}}</li>
+        <li class="region">{{list.region}}</li>
+    </view>
+    <view class="ul-cate">增项</view>
+    <view class="ul">
+        <li class="goodsNo">编号</li>
+        <li class="title">名称</li>
+        <li class="num">数量</li>
+        <li class="unit">单位</li>
+        <li class="region">区域</li>
+    </view>
+    <view class="ul" wx:for="{{rg.data}}" wx:if="{{list.category == '增项'}}" wx:key="rg" wx:for-item="list">
+        <li class="goodsNo">{{list.goodsNo}}</li>
+        <li class="title">{{list.title}}</li>
+        <li class="num">{{list.num}}</li>
+        <li class="unit">{{list.unit}}</li>
+        <li class="region">{{list.region}}</li>
+    </view>
+  </view>
+</scroll-view>   
+<scroll-view  scroll-y style="height:{{winHeight}}px" hidden="{{currentTab != 5}}">
+  <view class="table" wx:for="{{material}}" wx:key="artificial" wx:for-item="rg">
+    <view class="ul-title">{{rg.title}}</view>
+    <view class="ul-cate">套餐内</view>
+    <view class="ul">
+        <li class="goodsNo">编号</li>
+        <li class="title">名称</li>
+        <li class="num">数量</li>
+        <li class="unit">单位</li>
+        <li class="region">区域</li>
+    </view>
+    <view class="ul" wx:for="{{rg.data}}" wx:if="{{list.category == '套餐内'}}" wx:key="rg" wx:for-item="list">
+        <li class="goodsNo">{{list.goodsNo}}</li>
+        <li class="title">{{list.title}}</li>
+        <li class="num">{{list.num}}</li>
+        <li class="unit">{{list.unit}}</li>
+        <li class="region">{{list.region}}</li>
+    </view>
+    <view class="ul-cate">增项</view>
+    <view class="ul">
+        <li class="goodsNo">编号</li>
+        <li class="title">名称</li>
+        <li class="num">数量</li>
+        <li class="unit">单位</li>
+        <li class="region">区域</li>
+    </view>
+    <view class="ul" wx:for="{{rg.data}}" wx:if="{{list.category == '增项'}}" wx:key="rg" wx:for-item="list">
+        <li class="goodsNo">{{list.goodsNo}}</li>
+        <li class="title">{{list.title}}</li>
+        <li class="num">{{list.num}}</li>
+        <li class="unit">{{list.unit}}</li>
+        <li class="region">{{list.region}}</li>
+    </view>
+  </view>
+</scroll-view>  

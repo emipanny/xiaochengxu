@@ -1,0 +1,77 @@
+/**index.wxss**/
+#projectList{
+  width: 100%;
+  height: 50px;
+  margin: 0 auto;
+  background: #fff;
+  padding-top: 80px;
+  padding-bottom: 20px;
+}
+#project-text {
+  width: 100%;
+  height: 30px;
+}
+#project-text li{
+  float: left;
+  width: 33.3333%;
+  hieght: 30px;
+  text-align: center;
+  font-size: 12px;
+}
+#project-Count{
+  float: left;
+  width: 100%;
+  height: 20px;
+  line-height: 20px;
+}
+#project-Count li{
+  float: left;
+  width: 33%;
+  height: 20px;
+  line-height: 20px;
+  text-align: center;
+}
+#project{
+  width: 98%;
+  height: auto;
+  margin: 20px auto;
+}
+#project li {
+  width: 48%;
+  background: #fff; 
+  padding:0 20px;
+  margin-bottom: 10px;
+  box-sizing:border-box;
+}
+#project li .text {
+  float: right;
+  height: 80px;
+  line-height: 80px;
+  text-align: right;
+}
+#project li image {
+  float: left;
+  width: 50px;
+  height: 50px;
+  margin: 15px 0;
+}
+.userinfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.userinfo-avatar {
+  width: 128rpx;
+  height: 128rpx;
+  margin: 20rpx;
+  border-radius: 50%;
+}
+
+.userinfo-nickname {
+  color: #aaa;
+}
+
+.usermotto {
+  margin-top: 200px;
+}

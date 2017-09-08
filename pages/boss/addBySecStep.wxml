@@ -1,0 +1,9 @@
+<!--pages/boss/add.wxml-->
+<import src="addHeader.wxml"/>
+<template is="header" data="{{...header}}"/>
+
+<view class="msg">
+  <text>项目ID</text>
+  <text id="getqrcode" bindtap="getqrcode">{{text ? text : "扫描二维码获取项目ID"}}</text>
+  <view class="midAct" hover-class="midActHover" bindtap="nextStep">创建项目</view>
+</view>
