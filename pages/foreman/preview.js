@@ -86,7 +86,7 @@ Page({
         that.setData({
           stage: stage
         })
-        console.log(that.data.stage);
+        //console.log(that.data.stage);
         wx.hideLoading()
       })
     wx.setNavigationBarTitle({
@@ -149,5 +149,15 @@ Page({
       content: '您已经提交过该项，如果需要修改，请到查看项目里修改',
       showCancel: false,
     })
-  }
+  },
+  checkQuota: function (e) {
+    let that = this
+    let { id } = e.currentTarget.dataset;
+    api.navigateTo("./checkQuota?id=" + id);
+  },
+  checkMaterial: function (e) {
+    let that = this
+    let { id } = e.currentTarget.dataset;
+    api.navigateTo("./checkMaterial?id=" + id);
+  },
 })

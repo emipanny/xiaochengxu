@@ -1,0 +1,26 @@
+<view class="edit">
+  <view class="content">
+    <view class="text">编号：</view>
+    <text>{{info.goodsNo}}</text>
+  </view>
+  <view class="content">
+    <view class="text">名称：</view>
+    <text>{{info.title}}</text>
+  </view>
+  <view class="content">
+    <view class="text">数量：</view>
+    <text>{{info.num}}</text>
+  </view>
+  <view class="content">
+    <view class="text">单位：</view>
+    <text>{{info.unit}}</text>
+  </view>
+  <view class="content">
+    <view class="text">入场时间：</view>
+    <text>{{info.time}}</text>
+  </view>
+  <view class="confirm">
+    <view class="send" bindtap="send">修改</view>
+    <view class="cancl" bindtap="back">取消</view>
+  </view>
+</view>

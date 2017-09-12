@@ -28,6 +28,10 @@
     "pages/foreman/edit",
     "pages/foreman/preview",
     "pages/foreman/check",
+    "pages/foreman/checkQuota",
+    "pages/foreman/checkMaterial",
+    "pages/foreman/editQuota",
+    "pages/foreman/editMaterial",
 
     "pages/supervisor/index",
     "pages/supervisor/on",

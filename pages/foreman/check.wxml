@@ -2,7 +2,7 @@
 <view class="stage" wx:for="{{stage}}" wx:if="{{list.data.length > 0}}" wx:for-item="list" wx:key="rg">
   <view class="stageName">{{list.title}}</view>
   <view class="quota" wx:if="{{list.data.length > 0}}">
-    <view class="list {{quota.isSave ? 'save' : ''}}" wx:for="{{list.data}}"   wx:for-item="quota" wx:key="qg"  bindtap="{{quota.isSave ? 'noAct' : 'act'}}" data-data="{{quota}}" data-order="{{quota.order}}" data-stage="{{list.title}}">
+    <view class="list {{quota.isSave ? 'save' : ''}}" wx:for="{{list.data}}"   wx:for-item="quota" wx:key="qg"  bindtap="{{quota.isSave ? 'noAct' : 'act'}}" data-data="{{quota}}" data-order="{{quota.order}}" data-stage="{{list.title}}" >
       <view class="listA">
         <view class="order">{{quota.order}}</view>
         <view class="goodsNo">{{quota.goodsNo}}</view>
