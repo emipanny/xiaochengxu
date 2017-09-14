@@ -25,6 +25,22 @@
   text-align: center;
   color: #35b3ca;
 }
+.content .value2{
+  float: left;
+  width: 100px;
+  line-height: 30px;
+  text-align: right;
+  color: #35b3ca;
+  margin-left: 20px;
+}
+.content .value3{
+  float: left;
+  width: 100px;
+  line-height: 30px;
+  text-align: left;
+  color: #35b3ca;
+  margin-left: 10px;
+}
 .content input{
   width: 200px;
   float: left;

@@ -125,7 +125,7 @@ Page({
   send: function () {
     let {id, info} = this.data;
     let that = this;
-    api.request("https://xcx.envisioneer.cn/foreman/EditQuota", { id, info})
+    api.request("https://xcx.envisioneer.cn/foreman/editQuota", { id, info})
       .then(function (res) {
         if (res == 22001) {
           wx.showModal({

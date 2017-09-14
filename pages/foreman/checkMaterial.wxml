@@ -17,7 +17,14 @@
   </view>
   <view class="content">
     <view class="text">入场时间：</view>
-    <text>{{info.time}}</text>
+    <picker mode="date" value="{{info.date}}" class="value2" start="2015-09-01" end="2030-09-01"  bindchange="date"> 
+        <view class="picker">
+          {{info.date ? info.date : "选择日期"}} 
+        </view>
+    </picker>
+    <picker mode="time" value="{{info.time}}" class="value3" start="00:00" end="23:59"   bindchange="time"> 
+        {{info.time ? info.time : "选择时间"}} 
+    </picker>
   </view>
   <view class="confirm">
     <view class="send" bindtap="send">修改</view>
