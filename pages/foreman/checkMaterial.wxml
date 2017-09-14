@@ -1,4 +1,4 @@
-<view class="edit">
+<view class="edit" style="overflow-y:{{editShow ? 'auto' : 'hidden'}}; height:{{winHeight}}px">
   <view class="content">
     <view class="text">编号：</view>
     <text>{{info.goodsNo}}</text>
@@ -26,8 +26,29 @@
         {{info.time ? info.time : "选择时间"}} 
     </picker>
   </view>
+  <view class="content">
+    <view class="text">采购员：</view>
+    <view class="value" bindtap="editUser">编辑采购员</view>
+    <view class="clear"></view>
+    <view class="classname"  wx:for="{{users}}"  wx:for-item="user" wx:key="users">
+      <view class="classname"  wx:for="{{purchase}}"  wx:for-item="purchase" wx:key="purchases" wx:if="{{user.id == purchase}}">
+        {{user.nickname}}-{{user.realname}}-{{user.phone}}
+      </view>
+    </view>
+  </view>
   <view class="confirm">
     <view class="send" bindtap="send">修改</view>
     <view class="cancl" bindtap="back">取消</view>
+  </view>
+</view>
+<view class="materialActList" style="display:{{userShow ? 'block' : 'none'}}; height:{{winHeight}}px">
+  <checkbox-group bindchange="usercheckboxChange">
+    <label class="checkbox" wx:for="{{users}}" wx:key="qg" wx:for-item="es">
+      <checkbox value="{{es.id}}" name="material" checked="{{es.checked}}"/>{{es.nickname}}  {{es.realname}} {{es.phone}}
+    </label>
+  </checkbox-group>
+  <view class="confirm">
+    <view class="cancl" bindtap="editCancl">取消</view>
+    <view class="send" bindtap="userSure" >确认</view>
   </view>
 </view>
