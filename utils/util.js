@@ -32,7 +32,7 @@ function formatUnixToDate(date) {
 function formatUnixToTime(date) {
   date = new Date(date * 1000).toLocaleString("zh", { hour12: false });
   date = date.split(" ");
-  return date[1];
+  return date[1].substring(0, 5);
 }
 function formatUnixToDT(date) {
   date = new Date(date * 1000).toLocaleString("zh", { hour12: false });

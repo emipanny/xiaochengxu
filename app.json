@@ -32,6 +32,8 @@
     "pages/foreman/checkMaterial",
     "pages/foreman/editQuota",
     "pages/foreman/editMaterial",
+    "pages/foreman/today",
+
 
     "pages/supervisor/index",
     "pages/supervisor/on",

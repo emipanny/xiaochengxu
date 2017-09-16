@@ -21,6 +21,11 @@ Page({
       url: './on'
     })
   },
+  goToday: function () {
+    wx.navigateTo({
+      url: './today'
+    })
+  },
   goProgress: function () {
     wx.navigateTo({
       url: './progress'
