@@ -1,66 +1,66 @@
-// pages/supervisor/index.js
+var api = require('../../utils/api');
+//index.js
+//获取应用实例
+var app = getApp()
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
-  
+    motto: 'Hello World',
+    userInfo: {},
+    countEnd: 0,
+    countOn: 0,
+    countWill: 0,
   },
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-  
+  //事件处理函数
+  bindViewTap: function () {
+    wx.navigateTo({
+      url: '../logs/logs'
+    })
   },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-  
+  goProjects: function () {
+    wx.navigateTo({
+      url: './on'
+    })
   },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-  
+  goToday: function () {
+    wx.navigateTo({
+      url: './today'
+    })
   },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-  
+  goProgress: function () {
+    wx.navigateTo({
+      url: './progress'
+    })
   },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-  
+  goSign: function () {
+    wx.navigateTo({
+      url: './sign'
+    })
   },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-  
+  goHelp: function () {
+    wx.navigateTo({
+      url: '../index/help'
+    })
   },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-  
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-  
+  onLoad: function () {
+    var that = this
+    //调用应用实例的方法获取全局数据
+    let info;
+    app.getUserInfo(function (userInfo) {
+      //更新数据
+      info = userInfo;
+    })
+    wx.setNavigationBarTitle({
+      title: '项目管理'
+    })
+    api.request("https://xcx.envisioneer.cn/supervisor/getHome", {})
+      .then(function (res) {
+        console.log(res);
+        that.setData({
+          userInfo: info,
+          countEnd: res.endNum,
+          countOn: res.onNum,
+          countWill: res.willNum,
+        })
+      })
   }
 })

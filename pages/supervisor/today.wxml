@@ -1,0 +1,29 @@
+<!--pages/foreman/report.wxml-->
+<view class="stage" wx:for="{{projects}}" wx:if="{{projects.length > 0}}" wx:for-item="list" wx:key="rg">
+  <view class="stageName">{{list.title}}</view>
+  <view wx:if="{{list.quota.length > 0 || list.material.length > 0}}">
+    <view class="data" wx:if="{{list.quota.length > 0}}">
+      <view class="li {{quota.state == 1 ? 'listOrder' : ''}}" wx:for="{{list.quota}}" wx:for-item="quota" wx:key="qg"  bindtap="updateQuotaState" data-id="{{quota.id}}">
+        <view class="liA">
+          <view class="liA_1">第{{quota.now}}天/共{{quota.all}}天</view>
+          <view class="liA_2">{{quota.num}}{{quota.unit}}</view>
+        </view>
+        <view class="liB">{{quota.title}}</view>
+        <view class="liC" wx:if="{{quota.supervisor_nowStart}}">交底时间：{{quota.supervisor_nowStart}}</view>
+        <view class="liC" wx:if="{{quota.supervisor_nowEnd}}">验收时间：{{quota.supervisor_nowEnd}}</view>
+
+        <view class="check" wx:if="{{quota.state == 1}}"></view>
+        <view class="clear"></view>
+      </view>
+      <view class="clear"></view>
+    </view>
+  </view>
+  <view wx:if="{{list.quota.length == 0 && list.material.length == 0}}">
+    该项目今天暂无事宜
+  </view>
+</view>
+<view wx:if="{{projects.length == 0}}" >
+  今天暂无待办事宜
+</view>
+
+

@@ -35,21 +35,19 @@
 
     "pages/supervisor/index",
     "pages/supervisor/on",
-    "pages/supervisor/will",
-    "pages/supervisor/end",
-    "pages/supervisor/add",
+    "pages/supervisor/checkProject",
+    "pages/supervisor/preview",
+    "pages/supervisor/checkQuota",
+    "pages/supervisor/checkMaterial",
+    "pages/supervisor/sign",
+    "pages/supervisor/today",
+    "pages/supervisor/updateQuotaState",
 
     "pages/designer/index",
     "pages/designer/on",
-    "pages/designer/will",
-    "pages/designer/end",
-    "pages/designer/add",
 
     "pages/purchase/index",
     "pages/purchase/on",
-    "pages/purchase/will",
-    "pages/purchase/end",
-    "pages/purchase/add",
     
     "pages/help/index",
 

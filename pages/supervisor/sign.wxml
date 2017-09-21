@@ -1,0 +1,19 @@
+
+ 
+<view class="title">请选择要签到的项目</view>  
+<view wx:if="{{onList.length == 0}}">暂无项目</view>  
+<view wx:if="{{onList.length > 0}}">
+  <view class="pList" wx:for="{{onList}}" id ="on_{{item.id}}" wx:key="on" >
+    <view class="pLInfo" id="pli_on_{{item.id}}">
+      <view class="pliTitle">{{item.title}}</view>
+      <view class="pliDate">
+        开工日期：{{item.startTime}} 工期剩余：{{item.endTime}}天 
+        <text  class="goto"  data-name="{{item.id}}" bindtap="showAct">签到</text>
+      </view>
+      <view class="signList" wx:if="{{item.sign.length > 0}}">
+        <text>今天签到时间</text>
+        <text wx:for="{{item.sign}}"  wx:key="rg" wx:for-item="list">签到时间：{{list.time}}</text>
+      </view>
+    </view>
+  </view>
+</view>
