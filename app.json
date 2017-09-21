@@ -19,8 +19,6 @@
 
     "pages/foreman/index",
     "pages/foreman/on",
-    "pages/foreman/will",
-    "pages/foreman/end",
     "pages/foreman/checkProject",
     "pages/foreman/checkGoods",
     "pages/foreman/sign",
@@ -30,8 +28,6 @@
     "pages/foreman/check",
     "pages/foreman/checkQuota",
     "pages/foreman/checkMaterial",
-    "pages/foreman/editQuota",
-    "pages/foreman/editMaterial",
     "pages/foreman/today",
     "pages/foreman/updateQuotaState",
     "pages/foreman/updateMaterialState",
