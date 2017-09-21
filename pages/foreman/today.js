@@ -14,7 +14,7 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function () {
+  onShow: function () {
     this.init()
   },
   init: function () {
@@ -52,7 +52,7 @@ Page({
           }
           let { material } = projects[i];
           for (let j = 0; j < material.length; j++) {
-            let time = util.formatUnixToTime(material[i].time);
+            let time = util.formatUnixToTime(material[j].time);
             projects[i].material[j].into = time;
           }
         }
@@ -71,5 +71,15 @@ Page({
     wx.makePhoneCall({
       phoneNumber: phone
     })
+  },
+  updateQuotaState: function (e) {
+    let { id } = e.currentTarget.dataset;
+    api.navigateTo("./updateQuotaState?id=" + id);
+
+  },
+  updateMaterialState: function (e) {
+    let { id } = e.currentTarget.dataset;
+    api.navigateTo("./updateMaterialState?id=" + id);
+
   }
 })

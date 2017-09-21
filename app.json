@@ -33,6 +33,8 @@
     "pages/foreman/editQuota",
     "pages/foreman/editMaterial",
     "pages/foreman/today",
+    "pages/foreman/updateQuotaState",
+    "pages/foreman/updateMaterialState",
 
 
     "pages/supervisor/index",

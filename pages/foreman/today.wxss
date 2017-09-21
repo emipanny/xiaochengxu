@@ -56,11 +56,12 @@ page {
   box-sizing: border-box;
 }
 .data-list .li {
+  position: relative;
   width: 100%;
   height: auto;
   line-height: 25px;
   padding: 5px 0;
-  border-bottom: 1px #ccc dashed ;
+  border-bottom: 1px #35b3ca dashed ;
 }
 .liA {
   width: 100%;
@@ -97,4 +98,17 @@ page {
 }
 .clear {
   clear: both;
+}
+.listOrder {
+  border: 1px #35b3ca solid;
+}
+.check {
+  width: 18px;
+  height: 18px;
+  background-image: url("http://www.envisioneer.cn/assets/web/images/xcx/check.png");
+  background-color: #35b3ca;
+  background-size: 100% 100%;
+  position: absolute;
+  bottom: 0;
+  right: 0;
 }

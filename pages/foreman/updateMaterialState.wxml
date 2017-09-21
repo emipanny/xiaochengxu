@@ -1,0 +1,42 @@
+<view class="edit">
+  <view class="content">
+    <view class="text">编号：</view>
+    <text>{{info.goodsNo}}</text>
+  </view>
+  <view class="content">
+    <view class="text">名称：</view>
+    <text>{{info.title}}</text>
+  </view>
+  <view class="content">
+    <view class="text">数量：</view>
+    <text>{{info.num}}</text>
+  </view>
+  <view class="content">
+    <view class="text">单位：</view>
+    <text>{{info.unit}}</text>
+  </view>
+  <view class="content">
+    <view class="text">计划时间：</view>
+    <text>{{info.time}}</text>
+  </view>
+  <view class="content">
+    <view class="text">到达时间：</view>
+    <view class="value">
+      <picker mode="time" value="{{quota.time}}" start="00:00" end="23:59"  bindchange="timeChange">
+        <view class="picker">
+          {{info.arrive ? info.arrive : "添加" }}
+        </view>
+      </picker>
+    </view>
+  </view>
+  <view class="content">
+    <view class="text">采购员：</view>
+    <view class="classname"  wx:for="{{users}}"  wx:for-item="user" wx:key="purchases">
+      {{user.nickname}}-{{user.realname}}-{{user.phone}}
+    </view>
+  </view>
+  <view class="confirm">
+    <view class="send" bindtap="send" wx:if="{{info.state != 1}}">该项目完成</view>
+    <view class="cancl" bindtap="back" style="{{info.state == 1 ? 'width:100%' : ''}}">返回</view>
+  </view>
+</view>
