@@ -1,2 +1,53 @@
-<!--pages/designer/on.wxml-->
-<text>pages/designer/on.wxml</text>
+
+<view class="swiper-tab">  
+    <view class="swiper-tab-list {{currentTab==0 ? 'on' : ''}}" data-current="0" bindtap="swichNav">进行中({{onList.length}})</view>  
+    <view class="swiper-tab-list {{currentTab==1 ? 'on' : ''}}" data-current="1" bindtap="swichNav">即将开始({{willList.length}})</view>  
+    <view class="swiper-tab-list {{currentTab==2 ? 'on' : ''}}" data-current="2" bindtap="swichNav">已完成({{endList.length}})</view>  
+</view>  
+<swiper current="{{currentTab}}" class="swiper-box" duration="300" style="height:{{winHeight}}px" bindchange="bindChange">  
+    <!-- 我是哈哈 -->  
+    <swiper-item>  
+      <view wx:if="{{onList.length == 0}}">暂无项目</view>  
+      <view wx:if="{{onList.length > 0}}">
+        <view class="pList" wx:for="{{onList}}" id ="on_{{item.id}}" wx:key="on"  data-name="{{item.id}}" bindtap="showAct">
+          <view class="pLInfo" id="pli_on_{{item.id}}">
+            <view class="pliTitle">{{item.title}}</view>
+            <view class="pliDate">
+              开工日期：{{item.startTime}} 工期剩余：{{item.endTime}}天 
+              <text  class="goto" >>></text>
+            </view>
+          </view>
+        </view>
+      </view>
+    </swiper-item>  
+    <!-- 我是呵呵 -->  
+    <swiper-item>  
+      <view wx:if="{{willList.length == 0}}">暂无项目</view>  
+      <view wx:if="{{willList.length > 0}}">
+        <view class="pList" wx:for="{{willList}}" id ="on_{{item.id}}" wx:key="on"  data-name="{{item.id}}" bindtap="showAct">
+          <view class="pLInfo" id="pli_on_{{item.id}}">
+            <view class="pliTitle">{{item.title}}</view>
+            <view class="pliDate">
+              开工日期：{{item.startTime}}
+              <text  class="goto" >>></text>
+            </view>
+          </view>
+        </view>
+      </view>
+    </swiper-item>  
+    <!-- 我是嘿嘿 -->  
+    <swiper-item>  
+      <view wx:if="{{endList.length == 0}}">暂无项目</view>  
+      <view wx:if="{{endList.length > 0}}">
+        <view class="pList" wx:for="{{endList}}" id ="on_{{item.id}}" wx:key="on"  data-name="{{item.id}}" bindtap="showAct">
+          <view class="pLInfo" id="pli_on_{{item.id}}">
+            <view class="pliTitle">{{item.title}}</view>
+            <view class="pliDate">
+              开工日期：{{item.startTime}} 完成日期：{{item.endTime}}
+              <text  class="goto" >>></text>
+            </view>
+          </view>
+        </view>
+      </view>
+    </swiper-item>  
+</swiper>  

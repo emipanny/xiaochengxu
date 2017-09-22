@@ -1,7 +1,23 @@
-/* pages/project/on.wxss */
-page {
+/* pages/boss/add.wxss */
+.msg {
+  width: 100%;
+  height: auto;
   background: #fff;
-  overflow: auto;
+  font-size: 16px;
+  margin: 0 auto;
+  padding: 30px;
+  box-sizing: border-box;
+}
+.msg text {
+  width: 100%;
+  font-size: 16px;
+  height:30px;
+  line-height: 30px;
+  text-align: center;
+  display: block;
+}
+.midAct {
+  margin-top:0px;
 }
 .swiper-tab{  
     width: 100%;  
@@ -26,47 +42,15 @@ page {
     border-right: 1rpx solid #35b3ca;
     box-sizing: border-box;
 }  
-.on{ 
-    color: #fff;  
-    background: #35b3ca;
-}  
-.pList {
-  width: 100%;
-  border-bottom: 1px solid #ccc;
-  background: #fff;
-  padding: 10px 0; 
-}
-.pLInfo {
-  width: 90%;
-  margin: 0 auto;
-  font-size: 16px;
-}
-.pLAct {
-  width: 90%;
-  margin: 0 auto;
-  font-size: 16px;
-  display: none;
-}
-.pliTitle {
-  width:100%;
-  height: 30px;
-  line-height: 30px;
-}
-.pliDate {
-  width:100%;
-  height: 30px;
-  font-size: 12px;
-  line-height: 30px;
-}
-
 swiper-item {
   height: auto;
   border: 1px solid #ccc;
   overflow-y: auto;
 }
 .swiper-box {
-  padding-top:40px;
+  margin-top: 40px;
 }
-.goto {
-  float: right;
-}
+.on{ 
+    color: #fff;  
+    background: #35b3ca;
+}  

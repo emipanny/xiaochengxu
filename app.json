@@ -45,6 +45,13 @@
 
     "pages/designer/index",
     "pages/designer/on",
+    "pages/designer/checkProject",
+    "pages/designer/preview",
+    "pages/designer/checkQuota",
+    "pages/designer/checkMaterial",
+    "pages/designer/today",
+    "pages/designer/updateQuotaState",
+    "pages/designer/sign",
 
     "pages/purchase/index",
     "pages/purchase/on",

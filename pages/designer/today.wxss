@@ -1,0 +1,107 @@
+/* pages/foreman/report.wxss */
+page {
+  background: #fff;
+}
+.stage {
+  width: 100%;
+  padding-top: 20px;
+  margin-bottom: 20px;
+}
+.stageName {
+  width: 100%;
+  height: 35px;
+  line-height: 35px;
+  font-size: 14px;
+  background: #35b3ca;
+  color: #fff;
+  margin: 0 auto;
+  padding: 0 10px;
+  box-sizing: border-box;
+}
+.quota {
+  width: 100%;
+  height: auto;
+}
+.list {
+  width: 100%;
+  height: auto;
+  border-bottom: 1px solid #ccc;
+  padding: 5px;
+  box-sizing: border-box;
+  position: relative;
+}
+.date {
+  width: 100%;
+  height: 30px;
+  background: #ccc;
+}
+.data {
+  width: 100%;
+  height: auto;
+  border-bottom: 1px solid #ccc;
+}
+.data-title {
+  float: left;
+  width: 20%;
+  height: auto;
+  padding: 10px;
+  box-sizing: border-box;
+}
+.li {
+  position: relative;
+  width: 100%;
+  height: auto;
+  box-sizing: border-box;
+  line-height: 25px;
+  padding: 5px;
+  border-bottom: 1px #35b3ca dashed ;
+}
+.liA {
+  width: 100%;
+  line-height: 20px;
+  font-size: 12px;
+  color: #777;
+}
+.liA_1 {
+  float: left;
+  width: 50%;
+  text-align: left;
+}
+.liA_2 {
+  float: right;
+  width: 50%;
+  text-align: right;
+}
+.liB {
+  width: 100%;
+  line-height: 25px;
+  font-size: 16px;
+}
+.liC {
+  width: 100%;
+  line-height: 20px;
+  font-size: 14px;
+  color: #E31B23;
+}
+.liD {
+  width: 100%;
+  line-height: 18px;
+  font-size: 12px;
+  color: #E31B23;
+}
+.clear {
+  clear: both;
+}
+.listOrder {
+  border: 1px #35b3ca solid;
+}
+.check {
+  width: 18px;
+  height: 18px;
+  background-image: url("http://www.envisioneer.cn/assets/web/images/xcx/check.png");
+  background-color: #35b3ca;
+  background-size: 100% 100%;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}

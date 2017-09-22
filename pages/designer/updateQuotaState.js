@@ -18,15 +18,14 @@ Page({
   onLoad: function (options) {
     let { id } = options;
     let that = this;
-    api.request("https://xcx.envisioneer.cn/supervisor/checkQuota", { id })
+    api.request("https://xcx.envisioneer.cn/designer/checkQuota", { id })
       .then(function (res) {
-        console.log(res);
         res.start_time = util.formatUnixToDate(res.start_time);
         res.end_time = util.formatUnixToDate(res.end_time);
-        res.supervisor_start = util.formatUnixToDT(res.supervisor_start);
-        if (res.supervisor_start_finish) res.supervisor_start_finish = util.formatUnixToDT(res.supervisor_start_finish);
-        res.supervisor_end = util.formatUnixToDT(res.supervisor_end);
-        if (res.supervisor_end_finish) res.supervisor_end_finish = util.formatUnixToDT(res.supervisor_end_finish);
+        res.designer_start = util.formatUnixToDT(res.designer_start);
+        if (res.designer_start_finish) res.designer_start_finish = util.formatUnixToDT(res.designer_start_finish);
+        res.designer_end = util.formatUnixToDT(res.designer_end);
+        if (res.designer_end_finish) res.designer_end_finish = util.formatUnixToDT(res.designer_end_finish);
         that.setData({
           id: id,
           info: res
@@ -36,9 +35,9 @@ Page({
   startState: function () {
     let { id, info } = this.data;
     let that = this;
-    api.request("https://xcx.envisioneer.cn/supervisor/updateQuotaStartState", { id }).
+    api.request("https://xcx.envisioneer.cn/designer/updateQuotaStartState", { id }).
       then(function (res) {
-        info.supervisor_start_finish = util.formatUnixToDT(res.supervisor_start_finish);
+        info.designer_start_finish = util.formatUnixToDT(res.designer_start_finish);
         that.setData({
           info: info
         })
@@ -47,10 +46,10 @@ Page({
   endState: function () {
     let { id, info } = this.data;
     let that = this;
-    api.request("https://xcx.envisioneer.cn/supervisor/updateQuotaEndState", { id }).
+    api.request("https://xcx.envisioneer.cn/designer/updateQuotaEndState", { id }).
       then(function (res) {
         console.log(res);
-        info.supervisor_end_finish = util.formatUnixToDT(res.supervisor_end_finish);
+        info.designer_end_finish = util.formatUnixToDT(res.designer_end_finish);
         that.setData({
           info: info
         })

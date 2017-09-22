@@ -3,6 +3,9 @@ page {
   background: #fff;
   overflow: auto;
 }
+.title {
+  font-size: 16px;
+}
 .swiper-tab{  
     width: 100%;  
     border-bottom: 4rpx solid #35b3ca;  
@@ -69,4 +72,25 @@ swiper-item {
 }
 .goto {
   float: right;
+  display: block;
+  padding: 0px 10px;
+  border-radius: 2px;
+  background: #35b3ca;
+  color: #fff;
+}
+.signList {
+  width: 100%; 
+  height: auto;
+  padding: 5px;
+  box-sizing: border-box;
+  background: #f2f2f2;
+}
+.signList text {
+  width: 100%;
+  height: 16px;
+  line-height: 16px;
+  font-size: 12px;
+  display: block;
+  padding: 0;
+  margin: 0;
 }

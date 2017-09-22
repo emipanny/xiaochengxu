@@ -24,7 +24,7 @@ Page({
       title: '加载中',
     })
     let that = this
-    let url = "https://xcx.envisioneer.cn/supervisor/getPreview";
+    let url = "https://xcx.envisioneer.cn/designer/getPreview";
     let data = { id };
     api.request(url, data)
       .then(function (res) {

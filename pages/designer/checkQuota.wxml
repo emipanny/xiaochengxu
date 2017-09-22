@@ -17,27 +17,43 @@
   </view>
   <view class="content">
     <view class="text">开工日期：</view>
-    <text>{{info.start_time}}</text>
+    <text>{{info.start_time}} </text>
   </view>
   <view class="content">
     <view class="text">结束时间：</view>
-    <text>{{info.end_time}}</text>
+    <text>{{info.end_time}} </text>
   </view>
   <view class="content">
     <view class="text">监理交底：</view>
-    <text>{{info.supervisor_start}}</text>
+    <text>{{info.supervisor_start}} </text>
   </view>
   <view class="content">
     <view class="text">完成时间：</view>
-    <view class="{{info.supervisor_start_finish ? '' : 'value'}}" bindtap="{{info.supervisor_start_finish ? '' : 'startState'}}" >{{info.supervisor_start_finish ? info.supervisor_start_finish : "点击完成"}}</view>
+    <text>{{info.supervisor_start_finish ? info.supervisor_start_finish : "未完成"}}</text>
   </view>
   <view class="content">
     <view class="text">监理验收：</view>
-    <text>{{info.supervisor_end}}</text>
+    <text>{{info.supervisor_end}} </text>
   </view>
   <view class="content">
     <view class="text">完成时间：</view>
-    <view class="{{info.supervisor_end_finish ? '' : 'value'}}" bindtap="{{info.supervisor_end_finish ? '' : 'endState'}}">{{info.supervisor_end_finish ? info.supervisor_end_finish : "点击完成"}}</view>
+    <text>{{info.supervisor_end_finish ? info.supervisor_end_finish : "未完成"}}</text>
+  </view>
+  <view class="content">
+    <view class="text">设计交底：</view>
+    <text>{{info.designer_start}} </text>
+  </view>
+  <view class="content">
+    <view class="text">完成时间：</view>
+    <text>{{info.designer_start_finish ? info.designer_start_finish : "未完成"}}</text>
+  </view>
+  <view class="content">
+    <view class="text">设计验收：</view>
+    <text>{{info.designer_end}}</text>
+  </view>
+  <view class="content">
+    <view class="text">完成时间：</view>
+    <text>{{info.designer_end_finish ? info.designer_end_finish : "未完成"}}</text>
   </view>
   <view class="confirm">
     <view class="cancl" bindtap="back">返回</view>

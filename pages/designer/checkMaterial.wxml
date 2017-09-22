@@ -1,0 +1,32 @@
+<view class="edit" style="overflow-y:{{editShow ? 'auto' : 'hidden'}}; height:{{winHeight}}px">
+  <view class="content">
+    <view class="text">编号：</view>
+    <text>{{info.goodsNo}}</text>
+  </view>
+  <view class="content">
+    <view class="text">名称：</view>
+    <text>{{info.title}}</text>
+  </view>
+  <view class="content">
+    <view class="text">数量：</view>
+    <text>{{info.num}}</text>
+  </view>
+  <view class="content">
+    <view class="text">单位：</view>
+    <text>{{info.unit}}</text>
+  </view>
+  <view class="content">
+    <view class="text">入场时间：</view>
+    <text>{{info.time}}</text>
+  </view>
+  <view class="content">
+    <view class="text">采购员：</view>
+    <view class="clear"></view>
+    <view class="classname"  wx:for="{{purchase}}"  wx:for-item="user" wx:key="purchases">
+      {{user.nickname}}-{{user.realname}}-{{user.phone}}
+    </view>
+  </view>
+  <view class="confirm">
+    <view class="cancl" bindtap="back">返回</view>
+  </view>
+</view>
