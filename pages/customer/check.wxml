@@ -1,0 +1,58 @@
+<!--pages/foreman/report.wxml-->
+  <view id="main" wx:if="{{quota.length > 0 || material.length > 0}}">
+    <view class="data" wx:if="{{quota.length > 0}}">
+      <view class="data-title">施工</view>
+      <view class="data-list">
+        <view class="li {{quota.state == 1 ? 'listOrder' : ''}}" wx:for="{{quota}}" wx:for-item="quota" wx:key="qg" >
+          <view class="liA">
+            <view class="liA_1">第{{quota.now}}天/共{{quota.all}}天</view>
+            <view class="liA_2">{{quota.num}}{{quota.unit}}</view>
+          </view>
+          <view class="liB">{{quota.title}}</view>
+          <view class="liC" wx:if="{{quota.supervisor_nowStart}}">监理交底：{{quota.supervisor_nowStart}}</view>
+          <view class="liC" wx:if="{{quota.supervisor_nowEnd}}">监理验收：{{quota.supervisor_nowEnd}}</view>
+          <view class="liC" wx:if="{{quota.designer_nowStart}}">设计交底：{{quota.designer_nowStart}}</view>
+          <view class="liC" wx:if="{{quota.designer_nowEnd}}">设计验收：{{quota.designer_nowEnd}}</view>
+
+          <view class="check" wx:if="{{quota.state == 1}}"></view>
+          <view class="clear"></view>
+        </view>
+      </view>
+      <view class="clear"></view>
+    </view>
+    <view class="data" wx:if="{{material.length > 0}}">
+      <view class="data-title">材料</view>
+      <view class="data-list">
+        <view class="li {{material.state == 1 ? 'listOrder' : ''}}" wx:for="{{material}}" wx:for-item="material" wx:key="mg">
+          <view class="liA">
+            <view class="liA_1">入场时间：{{material.into}}</view>
+            <view class="liA_2">{{material.num}}{{material.unit}}</view>
+          </view>
+          <view class="clear"></view>
+          <view class="liB" bindtap="updateMaterialState" data-id="{{material.id}}">{{material.title}}</view>
+          <view class="liD" wx:if="{{material.users.length}}"  wx:for="{{material.users}}" wx:for-item="user" wx:key="ug">
+            配送：{{user.nickname}}-{{user.realname}}-{{user.phone}}
+          </view>
+
+          <view class="check" wx:if="{{material.state == 1}}"></view>
+        </view>
+      </view>
+      <view class="clear"></view>
+    </view>
+  </view>
+  <view wx:if="{{quota.length == 0 && material.length == 0}}">
+    今天暂无装修事项
+  </view>
+  <view id="tab">
+    <view class="tab-act" bindtap='prev'>昨天</view>
+    <view class="tab-act">
+      <picker mode="date" value="{{date}}" start="{{projectStart}}" end="{{projectEnd}}" bindchange="dateChange">
+        <view class="picker">
+         选择日期 
+        </view>
+      </picker>
+    </view>
+    <view class="tab-act" bindtap='next'>明天</view>
+  </view>
+
+

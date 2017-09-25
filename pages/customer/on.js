@@ -1,4 +1,4 @@
-// pages/project/add.js
+// pages/customer/on.js
 Page({
 
   /**

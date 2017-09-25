@@ -52,6 +52,9 @@
     "pages/designer/today",
     "pages/designer/updateQuotaState",
     "pages/designer/sign",
+    
+    "pages/customer/index",
+    "pages/customer/check",
 
     "pages/purchase/index",
     "pages/purchase/on",

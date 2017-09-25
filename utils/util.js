@@ -25,9 +25,8 @@ function formatDateUnix(date) {
   return date;
 }
 function formatUnixToDate(date) {
-  date = new Date(date * 1000).toLocaleString("zh");
-  date = date.split(" ");
-  return date[0];
+  date = this.formatDate(new Date(date * 1000));
+  return date;
 }
 function formatUnixToTime(date) {
   date = new Date(date * 1000).toLocaleString("zh", { hour12: false });
@@ -40,6 +39,11 @@ function formatUnixToDT(date) {
 }
 function formatTimeUnix(date) {
   date = Date.parse(new Date(date)) / 1000;
+  return date;
+}
+function formatUnixToDUnix(date) {
+  date = this.formatUnixToDate(date);
+  date = this.formatDateUnix(date);
   return date;
 }
 
@@ -64,4 +68,5 @@ module.exports = {
   formatTimeUnix: formatTimeUnix,
   formatUnixToDT: formatUnixToDT,
   compare: compare,
+  formatUnixToDUnix: formatUnixToDUnix,
 }
