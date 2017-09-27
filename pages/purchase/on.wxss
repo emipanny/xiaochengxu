@@ -1,1 +1,78 @@
-/* pages/purchase/on.wxss */
+/* pages/foreman/report.wxss */
+page {
+  background: #fff;
+}
+#main {
+  width:100%;
+  margin-bottom: 40px;
+}
+.li {
+  position: relative;
+  width: 100%;
+  height: auto;
+  box-sizing: border-box;
+  line-height: 25px;
+  padding: 5px;
+  border-bottom: 1px #35b3ca dashed ;
+}
+.liA {
+  width: 100%;
+  line-height: 20px;
+  font-size: 12px;
+  color: #777;
+}
+.liA_1 {
+  float: left;
+  width: 50%;
+  text-align: left;
+}
+.liA_2 {
+  float: right;
+  width: 50%;
+  text-align: right;
+}
+.liB {
+  width: 100%;
+  line-height: 25px;
+  font-size: 16px;
+}
+.liC {
+  width: 100%;
+  line-height: 20px;
+  font-size: 14px;
+  color: #E31B23;
+}
+.clear {
+  clear: both;
+}
+.listOrder {
+  border: 1px #35b3ca solid;
+}
+.check {
+  width: 18px;
+  height: 18px;
+  background-image: url("http://www.envisioneer.cn/assets/web/images/xcx/check.png");
+  background-color: #35b3ca;
+  background-size: 100% 100%;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+#tab {
+  width: 100%; 
+  height: 40px;
+  position: fixed;
+  bottom: 0;
+  background: #35b3ca;
+  color: #fff;
+}
+.tab-act {
+  float: left; 
+  width: 33.33333%;
+  height: 40px;
+  line-height: 40px;
+  border-left: 1px solid #fff;
+  border-right: 1px solid #fff; 
+  box-sizing: border-box;
+  text-align: center;
+}

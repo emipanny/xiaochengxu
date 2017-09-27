@@ -1,2 +1,33 @@
-<!--pages/purchase/on.wxml-->
-<text>pages/purchase/on.wxml</text>
+<!--pages/foreman/report.wxml-->
+
+<view id="main">
+  <view class="li {{list.state == 1 ? 'listOrder' : ''}}" wx:for="{{material}}" wx:for-item="list" wx:key="qg"  bindtap="arrive" data-id="{{list.id}}">
+    <view class="liA">
+      <view class="liA_1">{{list.goodsNo}}</view>
+      <view class="liA_2">{{list.num}}{{list.unit}}</view>
+    </view>
+    <view class="liB">{{list.title}}</view>
+    <view class="liC">入场时间：{{list.time}}</view>
+    <view class="liC" wx:if="{{list.state == 1}}">送到时间：{{list.arrive}}</view>
+    <view class="liC">送货地址：{{list.detailed_address}}</view>
+
+    <view class="check" wx:if="{{list.state == 1}}"></view>
+    <view class="clear"></view>
+  </view>
+  <view wx:if="{{list.length == 0 }}">
+    该项目今天暂无事宜
+  </view>
+</view>
+  <view id="tab">
+    <view class="tab-act" bindtap='prev'>昨天</view>
+    <view class="tab-act">
+      <picker mode="date" value="{{date}}" start="{{projectStart}}" end="{{projectEnd}}" bindchange="dateChange">
+        <view class="picker">
+         选择日期 
+        </view>
+      </picker>
+    </view>
+    <view class="tab-act" bindtap='next'>明天</view>
+  </view>
+
+
