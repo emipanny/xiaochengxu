@@ -58,6 +58,7 @@
 
     "pages/purchase/index",
     "pages/purchase/on",
+    "pages/purchase/person",
     
     "pages/help/index",
 

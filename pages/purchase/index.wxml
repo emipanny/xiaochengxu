@@ -2,13 +2,6 @@
 <view id="project">
   <li bindtap="goProjects"><image src='http://www.envisioneer.cn/assets/web/images/xcx/myproject.jpg' ></image><view class="text">我的项目</view></li>
   <li bindtap="goPerson"><image src='http://www.envisioneer.cn/assets/web/images/xcx/person.jpg' ></image><view class="text">个人信息</view></li>
-  <li bindtap="goSign"><image src='http://www.envisioneer.cn/assets/web/images/xcx/sign.jpg' ></image><view class="text">打卡签到</view></li>
   <li bindtap="goHelp"><image src='http://www.envisioneer.cn/assets/web/images/xcx/help.jpg' ></image><view class="text">帮助手册</view></li>
   <view class="clear"></view>
-</view>
-<view class="container">
-  <view   class="userinfo">
-    <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
-    <text class="userinfo-nickname">{{userInfo.nickName}}</text>
-  </view> 
 </view>

@@ -10,42 +10,9 @@ Page({
     countOn: 0,
     countWill: 0,
   },
-  //事件处理函数
-  bindViewTap: function () {
+  goPerson: function () {
     wx.navigateTo({
-      url: '../logs/logs'
+      url: './person'
     })
   },
-  goProjects: function () {
-    wx.navigateTo({
-      url: './on'
-    })
-  },
-  goProgress: function () {
-    wx.navigateTo({
-      url: './progress'
-    })
-  },
-  goSign: function () {
-    wx.navigateTo({
-      url: './sign'
-    })
-  },
-  goHelp: function () {
-    wx.navigateTo({
-      url: '../index/help'
-    })
-  },
-  onLoad: function () {
-    var that = this
-    //调用应用实例的方法获取全局数据
-    let info;
-    app.getUserInfo(function (userInfo) {
-      //更新数据
-      info = userInfo;
-    })
-    wx.setNavigationBarTitle({
-      title: '项目管理'
-    })
-  }
 })
