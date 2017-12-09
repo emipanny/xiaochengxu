@@ -14,6 +14,7 @@
 <view id="project">
   <li class="fl" bindtap="goProjects"><image src='http://www.envisioneer.cn/assets/web/images/xcx/myproject.jpg' ></image><view class="text">我的项目</view></li>
   <li class="fr" bindtap="goToday"><image src='http://www.envisioneer.cn/assets/web/images/xcx/today.jpg' ></image><view class="text">今天待办</view></li>
+  <li class="fl" bindtap="goTalk"><image src='http://www.envisioneer.cn/assets/web/images/xcx/talk.jpg' ></image><view class="text"> 留 言 </view></li>
   <li class="fr" bindtap="goSign"><image src='http://www.envisioneer.cn/assets/web/images/xcx/sign.jpg' ></image><view class="text">打卡签到</view></li>
   <li class="fl" bindtap="goHelp"><image src='http://www.envisioneer.cn/assets/web/images/xcx/help.jpg' ></image><view class="text">帮助手册</view></li>
   <view class="clear"></view>

@@ -42,5 +42,11 @@ Page({
     let time = this.data.now;
     time = util.formatUnixToDUnix(time);
     api.navigateTo("./check?id=" + id + "&time=" + time);
+  },
+  showTalk: function (e) {
+    let id = e.currentTarget.dataset.id;
+    let time = this.data.now;
+    time = util.formatUnixToDUnix(time);
+    api.navigateTo("./talk?id=" + id );
   }
 })

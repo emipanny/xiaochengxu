@@ -86,3 +86,4 @@ page {
   font-size: 14px;
   word-wrap : break-word ;
 }
+.clear {clear: both}

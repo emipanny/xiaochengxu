@@ -21,6 +21,11 @@ Page({
       url: './on'
     })
   },
+  goTalk: function () {
+    wx.navigateTo({
+      url: './talkList'
+    })
+  },
   goToday: function () {
     wx.navigateTo({
       url: './today'

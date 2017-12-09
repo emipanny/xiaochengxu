@@ -16,6 +16,8 @@
     "pages/boss/addByThiStep",
     "pages/boss/checkProject",
     "pages/boss/checkGoods",
+    "pages/boss/talkList",
+    "pages/boss/talk",
 
     "pages/foreman/index",
     "pages/foreman/on",
@@ -27,11 +29,13 @@
     "pages/foreman/preview",
     "pages/foreman/check",
     "pages/foreman/checkQuota",
+    "pages/foreman/checkREP",
     "pages/foreman/checkMaterial",
     "pages/foreman/today",
     "pages/foreman/updateQuotaState",
     "pages/foreman/updateMaterialState",
-
+    "pages/foreman/talkList",
+    "pages/foreman/talk",
 
     "pages/supervisor/index",
     "pages/supervisor/on",
@@ -42,6 +46,8 @@
     "pages/supervisor/sign",
     "pages/supervisor/today",
     "pages/supervisor/updateQuotaState",
+    "pages/supervisor/talkList",
+    "pages/supervisor/talk",
 
     "pages/designer/index",
     "pages/designer/on",
@@ -52,9 +58,12 @@
     "pages/designer/today",
     "pages/designer/updateQuotaState",
     "pages/designer/sign",
+    "pages/designer/talkList",
+    "pages/designer/talk",
     
     "pages/customer/index",
     "pages/customer/check",
+    "pages/customer/talk",
 
     "pages/purchase/index",
     "pages/purchase/on",

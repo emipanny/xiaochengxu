@@ -48,8 +48,10 @@ page {
 .pLAct {
   width: 90%;
   margin: 0 auto;
-  font-size: 16px;
-  display: none;
+  font-size: 12px;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
 }
 .pliTitle {
   width:100%;
@@ -64,5 +66,16 @@ page {
 }
 
 .goto {
+  float: left;
+  width: 48%;
+  height: 30px;
+  background: #35b3ca;
+  color: #fff;
+}
+.talk {
   float: right;
+  width: 48%;
+  height: 30px;
+  background: #35b3ca;
+  color: #fff;
 }

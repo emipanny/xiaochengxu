@@ -37,10 +37,17 @@ Page({
         })
       })
   },
+  changeConsumption: function(e){
+    let { info } = this.data;
+    info.consumption = e.detail.value;
+    this.setData({
+      info: info,
+    })
+  },
   send: function(){
     let {id, info} = this.data;
-    if (info.supervisor_start_finish && info.supervisor_end_finish && info.designer_start_finish && info.designer_end_finish ){
-      api.request("https://xcx.envisioneer.cn/foreman/updateQuotaState", {id}).
+    if (info.supervisor_start_finish && info.supervisor_end_finish && info.designer_start_finish && info.designer_end_finish && info.consumption){
+      api.request("https://xcx.envisioneer.cn/foreman/updateQuotaState", { id, consumption: info.consumption}).
         then(function(res){
           if(res == 1){
             wx.navigateBack({

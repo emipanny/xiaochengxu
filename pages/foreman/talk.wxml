@@ -1,0 +1,21 @@
+<view class="talk" style="margin-bottom:{{height}}px">
+  <view class="content" wx:for="{{content}}"  wx:for-item="list" wx:key="rg">
+    <view class="who" wx:if="{{list.type_id == 1}}">{{list.created_at}} {{list.realname}}(经理)：</view>
+    <view class="who" wx:if="{{list.type_id == 2}}">{{list.created_at}} 我说：</view>
+    <view class="who" wx:if="{{list.type_id == 3}}">{{list.created_at}} {{list.realname}}(监理)：</view>
+    <view class="who" wx:if="{{list.type_id == 4}}">{{list.created_at}} {{list.realname}}(设计师)：</view>
+    <view class="who" wx:if="{{list.type_id == 5}}">{{list.created_at}} {{list.realname}}(业主)：</view>
+    <view class="clear"></view>
+    <view class="text" wx:if="{{list.type == 1}}">{{list.value}}</view>
+    <view class="image" wx:if="{{list.type == 2}}">
+      <image style="" mode="aspectFit" src="https://xcx.envisioneer.cn/upload/talk/{{list.value}}" data-url="https://xcx.envisioneer.cn/upload/talk/{{list.value}}" bindtap='showImg'></image>
+    </view>
+    <view class="clear"></view>
+  </view>
+</view>
+<view class="act" style="height:{{height}}px">
+  <view class="act-image" bindtap='upImg'>上传图片</view>
+  <view class="act-text"><textarea fixed="true" bindlinechange="changeLine" value="{{value ? value : ''}}" bindinput="changeInput" show-confirm-bar="false" style="height:{{height-20}}px" bindconfirm="send"></textarea></view>
+  <view class="act-upload" bindtap='send'>发送</view>
+  <view class="clear"></view>
+</view>

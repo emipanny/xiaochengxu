@@ -103,6 +103,38 @@ exports.checkLocation = () => new Promise((resolve, reject) => {
     }
   });
 })
+exports.chooseImage = (url, data) => new Promise((resolve, reject) => {
+  console.log(data);
+  let sessionID = wx.getStorageSync('sessionID')
+  wx.chooseImage({
+    count: 1,
+    sizeType: ['original', 'compressed'], // 可以指定是原图还是压缩图，默认二者都有
+    sourceType: ['album', 'camera'], // 可以指定来源是相册还是相机，默认二者都有
+    success: function (res) {
+      let file = res.tempFilePaths[0];
+      wx.showLoading({
+        title: '上传中...',
+      })
+      wx.uploadFile({
+        url: url, //仅为示例，非真实的接口地址
+        filePath: file,
+        name: 'file',
+        header: {
+          'content-type': 'multipart/form-data',
+          sessionID
+        },
+        formData: data,
+        success: function (res) {
+          wx.hideLoading();
+          resolve(res);
+        }
+      })
+    },
+    fail: function(res){
+      reject();
+    }
+  })
+})
 exports.getSystemInfo = () => new Promise((resolve, reject) => {
   wx.getSystemInfo({
     success: function (res) {

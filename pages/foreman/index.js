@@ -36,6 +36,11 @@ Page({
       url: './sign'
     })
   },
+  goTalk: function () {
+    wx.navigateTo({
+      url: './talkList'
+    })
+  },
   goHelp: function () {
     wx.navigateTo({
       url: '../index/help'

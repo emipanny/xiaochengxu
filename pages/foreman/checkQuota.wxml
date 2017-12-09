@@ -12,6 +12,10 @@
     <text>{{info.num}}</text>
   </view>
   <view class="content">
+    <view class="text">实际用量：</view>
+    <text>{{info.consumption}}</text>
+  </view>
+  <view class="content">
     <view class="text">单位：</view>
     <text>{{info.unit}}</text>
   </view>

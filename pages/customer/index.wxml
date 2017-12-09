@@ -7,12 +7,15 @@
 <view class="title">我的项目</view>
 <view wx:if="{{list.length == 0}}">暂无项目</view>  
 <view wx:if="{{list.length > 0}}">
-  <view class="pList" wx:for="{{list}}" wx:key="item"  data-id="{{item.id}}" bindtap="showAct">
+  <view class="pList" wx:for="{{list}}" wx:key="item"  data-id="{{item.id}}">
     <view class="pLInfo" id="pli_on_{{item.id}}">
       <view class="pliTitle">{{item.title}}</view>
       <view class="pliDate">
-        开工日期：{{item.startTime}} <text wx:if="{{!item.isEnd}}">工期剩余：{{item.endTime}}天</text> <text wx:if="{{item.isEnd}}">已完工</text> 
-        <text  class="goto" >>></text>
+        开工日期：{{item.startTime}} <text wx:if="{{!item.isEnd}}">工期剩余：{{item.endTime}}天</text> <text wx:if="{{item.isEnd}}">已完工</text>
+      </view>
+      <view class="pLAct">
+        <view class="goto" data-id="{{item.id}}" bindtap="showAct">查看施工详情</view>
+        <view class="talk" data-id="{{item.id}}" bindtap="showTalk">查看留言</view>
       </view>
     </view>
   </view>

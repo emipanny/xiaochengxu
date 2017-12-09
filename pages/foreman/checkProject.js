@@ -84,6 +84,11 @@ Page({
     api.navigateTo("./checkGoods?id="+id)
 
   },
+  checkREP: function () {
+    let id = this.data.id;
+    api.navigateTo("./checkREP?id=" + id)
+
+  },
   allot: function () {
     let id = this.data.id;
     api.navigateTo("../index/foremanallot?id=" + id)
