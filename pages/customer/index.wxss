@@ -78,4 +78,18 @@ page {
   height: 30px;
   background: #35b3ca;
   color: #fff;
+  position: relative;
+}
+.sign {
+   width: 20px;
+   height: 20px;
+   border-radius: 10px;
+   background: red;
+   line-height: 20px;
+   font-size: 8px;
+   text-align: center;
+   color: #fff;
+   position: absolute;
+   right: 0px; 
+   margin-top: -30px;
 }

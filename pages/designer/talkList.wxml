@@ -17,6 +17,7 @@
               <text  class="goto" >>></text>
             </view>
           </view>
+          <view class="sign" wx:if="{{item.compare > 0}}">{{item.compare > 99 ? "99+" : item.compare}}</view>
         </view>
       </view>
     </swiper-item>  
@@ -28,10 +29,11 @@
           <view class="pLInfo" id="pli_on_{{item.id}}">
             <view class="pliTitle">{{item.title}}</view>
             <view class="pliDate">
-              开工日期：{{item.startTime}} 工期剩余：{{item.endTime}}天 
+              开工日期：{{item.startTime}} 工期：{{item.schedule}}天 
               <text  class="goto" >>></text>
             </view>
           </view>
+          <view class="sign" wx:if="{{item.compare > 0}}">{{item.compare > 99 ? "99+" : item.compare}}</view>
         </view>
       </view>
     </swiper-item>  
@@ -43,10 +45,11 @@
           <view class="pLInfo" id="pli_on_{{item.id}}">
             <view class="pliTitle">{{item.title}}</view>
             <view class="pliDate">
-              开工日期：{{item.startTime}} 工期剩余：{{item.endTime}}天 
+              开工日期：{{item.startTime}} 完工日期：{{item.endTime}}
               <text  class="goto" >>></text>
             </view>
           </view>
+          <view class="sign" wx:if="{{item.compare > 0}}">{{item.compare > 99 ? "99+" : item.compare}}</view>
         </view>
       </view>
     </swiper-item>  

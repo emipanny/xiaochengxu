@@ -1,5 +1,6 @@
 const util = require('../../utils/util');
 const api = require('../../utils/api');
+var comment = require('../../utils/comment');
 //index.js
 //获取应用实例
 var app = getApp()
@@ -10,29 +11,30 @@ Page({
     now: Date.now() / 1000 | 0,
   },
   onLoad: function () {
-    var that = this
-    //调用应用实例的方法获取全局数据
-    let info;
-    app.getUserInfo(function (userInfo) {
-      //更新数据
-      info = userInfo;
+    app.getUserInfo( (userInfo) => {
+      this.setData({
+        userInfo: userInfo
+      })
     })
     wx.setNavigationBarTitle({
       title: '项目管理'
     })
+  },
+  onShow: function(){
     api.request("https://xcx.envisioneer.cn/customer/getHome", {})
-      .then(function (res) {
-        let {now} = that.data;
-        res.list.forEach(function (item) {
+      .then( (res) => {
+        let {now} = this.data;
+        res.list.forEach( (item) => {
           item.startTime = util.formatUnixToDate(item.startTime);
           if (item.endTime > now) {
             item.isEnd = false;
             item.endTime = parseInt((item.endTime - now) / 86400) + 1;
           }
           else item.isEnd = true;
+          item.count = item.count || 0;
+          item.compare = comment.compareMessageCount(item.id, item.count);
         });
-        that.setData({
-          userInfo: info,
+        this.setData({
           list: res.list,
         })
       })

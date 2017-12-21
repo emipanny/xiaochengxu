@@ -25,28 +25,28 @@ exports.request = (url, data, option) => new Promise((resolve, reject) => {
     url: url,
     header: { sessionID },
     data: data,
-    success: function (res) {
+    success: (res) => {
       if(res.statusCode == 200){
         if (res.data == 11001) {
           wx.setStorageSync('errorMsg', { errcode: 11001, errmsg: "参数错误" });
           wx.navigateTo({
             url: '../index/error'
           })
-          reject();
+          reject;
         }
         else if (res.data == 11002) {
           wx.setStorageSync('errorMsg', { errcode: 11002, errmsg: "未知错误" });
           wx.navigateTo({
             url: '../index/error'
           })
-          reject();
+          reject;
         }
         else if (res.data == 11003) {
           wx.setStorageSync('errorMsg', { errcode: 11003, errmsg: "登陆状态错误" });
           wx.redirectTo({
             url: '../index/index'
           })
-          reject();
+          reject;
         }
         else resolve(res.data)
       }
@@ -55,10 +55,10 @@ exports.request = (url, data, option) => new Promise((resolve, reject) => {
         wx.navigateTo({
           url: '../index/error'
         })
-        reject();
+        reject;
       }
     },
-    fail: function (res) {
+    fail:  (res) => {
       reject(res.data)
     }
   })
@@ -79,7 +79,7 @@ exports.checkLocation = () => new Promise((resolve, reject) => {
               content: '若不授权位置，将无法使用小程序的功能；点击授权按钮，则可重新获得授权并使用。',
               cancelText: "不授权",
               confirmText: "授权",
-              success: function (res) {
+              success:  (res) => {
                 if (res.confirm) {
                   wx.openSetting({
                     success: (res) => {
@@ -103,44 +103,77 @@ exports.checkLocation = () => new Promise((resolve, reject) => {
     }
   });
 })
-exports.chooseImage = (url, data) => new Promise((resolve, reject) => {
-  console.log(data);
-  let sessionID = wx.getStorageSync('sessionID')
+exports.chooseImage = () => new Promise((resolve, reject) => {
   wx.chooseImage({
     count: 1,
     sizeType: ['original', 'compressed'], // 可以指定是原图还是压缩图，默认二者都有
     sourceType: ['album', 'camera'], // 可以指定来源是相册还是相机，默认二者都有
-    success: function (res) {
+    success:  (res) =>{
       let file = res.tempFilePaths[0];
-      wx.showLoading({
-        title: '上传中...',
-      })
-      wx.uploadFile({
-        url: url, //仅为示例，非真实的接口地址
-        filePath: file,
-        name: 'file',
-        header: {
-          'content-type': 'multipart/form-data',
-          sessionID
-        },
-        formData: data,
-        success: function (res) {
-          wx.hideLoading();
-          resolve(res);
-        }
-      })
+      resolve(file)
     },
-    fail: function(res){
-      reject();
+    fail: (res) => {
+      reject;
     }
   })
 })
+exports.uploadFile = (url, data) => new Promise((resolve, reject) => {
+  wx.showLoading({
+    title: '上传中...',
+  })
+  let { id, img } = data;
+  //判断图片格式
+  let rename = img.split(".");
+  let len = rename.length - 1;
+  if (rename[len] != "jpg" && rename[len] != "jpeg" && rename[len] != "png" && rename[len] != "bmp" && rename[len] != "gif") {
+    wx.hideLoading();
+    wx.setStorageSync('errorMsg', { errcode: 11005, errmsg: "图片格式不正确，请上传jpg,bmp,png,gif格式的图片！" });
+    wx.navigateTo({
+      url: '../index/error'
+    })
+  }
+  else{
+    //上传图片
+    let sessionID = wx.getStorageSync('sessionID');
+    wx.uploadFile({
+      url: url, //仅为示例，非真实的接口地址
+      filePath: img,
+      name: 'file',
+      header: {
+        'content-type': 'multipart/form-data',
+        sessionID
+      },
+      formData: { id },
+      success: function (res) {
+        wx.hideLoading();
+        if (res.statusCode == 200) {
+          let mess = JSON.parse(res.data);
+          if (mess.error) {
+            wx.setStorageSync('errorMsg', { errcode: 11005, errmsg: "图片格式不正确或上传错误！" });
+            wx.navigateTo({
+              url: '../index/error'
+            })
+          }
+          else {
+            resolve(mess);
+          }
+        }
+        else {
+          wx.setStorageSync('errorMsg', { errcode: 11005, errmsg: "上传失败" });
+          wx.navigateTo({
+            url: '../index/error'
+          })
+        }
+      }
+    })
+  }
+})
 exports.getSystemInfo = () => new Promise((resolve, reject) => {
   wx.getSystemInfo({
-    success: function (res) {
+    success:  (res) => {
       resolve(res);
     },
-    fail:function(err){
+    fail: (err) => {
       reject();
     }
 
@@ -154,7 +187,7 @@ exports.navigateTo = (url) => {
     wx.navigateTo({
       url: url
     })
-    setTimeout(function () {
+    setTimeout( () => {
       app.globalData.isNavigateTo = false;
     }, 1000)
   }
@@ -167,7 +200,7 @@ exports.navigateBack = (url) => {
     wx.navigateBack({
       delta: 2
     })
-    setTimeout(function () {
+    setTimeout( () => {
       app.globalData.isNavigateTo = false;
     }, 1000)
   }
@@ -179,7 +212,7 @@ exports.redirectTo = (url) => {
     wx.redirectTo({
       url: url
     })
-    setTimeout(function () {
+    setTimeout( () => {
       app.globalData.isNavigateTo = false;
     }, 1000)
   }
@@ -187,10 +220,10 @@ exports.redirectTo = (url) => {
 exports.getLocation = () => new Promise((resolve, reject) => {
   wx.getLocation({
     type: 'wgs84',
-    success: function (res) {
+    success:  (res) => {
       resolve(res);
     },
-    fail: function (err){
+    fail:  (err) => {
       reject();
     }
   })

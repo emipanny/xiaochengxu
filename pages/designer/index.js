@@ -1,4 +1,5 @@
 var api = require('../../utils/api');
+var comment = require('../../utils/comment');
 //index.js
 //获取应用实例
 var app = getApp()
@@ -9,6 +10,7 @@ Page({
     countEnd: 0,
     countOn: 0,
     countWill: 0,
+    newMessage: 0,
   },
   //事件处理函数
   bindViewTap: function () {
@@ -47,24 +49,36 @@ Page({
     })
   },
   onLoad: function () {
-    var that = this
-    //调用应用实例的方法获取全局数据
-    let info;
-    app.getUserInfo(function (userInfo) {
-      //更新数据
-      info = userInfo;
+    app.getUserInfo((userInfo) => {
+      this.setData({
+        userInfo: userInfo
+      })
     })
     wx.setNavigationBarTitle({
       title: '项目管理'
     })
+  },
+  onShow: function () {
     api.request("https://xcx.envisioneer.cn/designer/getHome", {})
-      .then(function (res) {
-        console.log(res);
-        that.setData({
-          userInfo: info,
-          countEnd: res.endNum,
-          countOn: res.onNum,
-          countWill: res.willNum,
+      .then(res => {
+        let saveCount = comment.allMessageCount();
+        let all = 0;
+        let newMessage = 0;
+        res.on.forEach(item => {
+          all += item.count || 0;
+        })
+        res.end.forEach(item => {
+          all += item.count || 0;
+        })
+        res.will.forEach(item => {
+          all += item.count || 0;
+        })
+        all - saveCount > 0 ? newMessage = all - saveCount : newMessage = 0;
+        this.setData({
+          countEnd: res.end.length,
+          countOn: res.on.length,
+          countWill: res.will.length,
+          newMessage: newMessage
         })
       })
   }

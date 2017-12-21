@@ -15,7 +15,7 @@
       </view>
       <view class="pLAct">
         <view class="goto" data-id="{{item.id}}" bindtap="showAct">查看施工详情</view>
-        <view class="talk" data-id="{{item.id}}" bindtap="showTalk">查看留言</view>
+        <view class="talk" data-id="{{item.id}}" bindtap="showTalk">查看留言<view class="sign" wx:if="{{item.compare > 0}}">{{item.compare > 99 ? "99+" : item.compare}}</view></view>
       </view>
     </view>
   </view>

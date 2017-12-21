@@ -14,7 +14,7 @@
 <view id="project">
   <li class="fl" bindtap="goProjects"><image src='http://www.envisioneer.cn/assets/web/images/xcx/myproject.jpg' ></image><view class="text">我的项目</view></li>
   <li class="fr" bindtap="goProgress"><image src='http://www.envisioneer.cn/assets/web/images/xcx/progress.jpg' ></image><view class="text">进度更新</view></li>
-  <li class="fl" bindtap="goTalk"><image src='http://www.envisioneer.cn/assets/web/images/xcx/talk.jpg' ></image><view class="text"> 留 言 </view></li>
+  <li class="fl" bindtap="goTalk"><image src='http://www.envisioneer.cn/assets/web/images/xcx/talk.jpg' ><view class="sign" wx:if="{{newMessage > 0}}">{{newMessage > 99 ? "99+" : newMessage}}</view></image><view class="text"> 留 言 </view></li>
   <li class="fr" bindtap="goAddProject"><image src='http://www.envisioneer.cn/assets/web/images/xcx/creatproject.jpg' ></image><view class="text">新建项目</view></li>
   <li class="fl" bindtap="goHelp"><image src='http://www.envisioneer.cn/assets/web/images/xcx/help.jpg' ></image><view class="text">帮助手册</view></li>
   <view class="clear"></view>

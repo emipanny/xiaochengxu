@@ -18,6 +18,7 @@
     "pages/boss/checkGoods",
     "pages/boss/talkList",
     "pages/boss/talk",
+    "pages/boss/talkSend",
 
     "pages/foreman/index",
     "pages/foreman/on",
@@ -36,6 +37,7 @@
     "pages/foreman/updateMaterialState",
     "pages/foreman/talkList",
     "pages/foreman/talk",
+    "pages/foreman/talkSend",
 
     "pages/supervisor/index",
     "pages/supervisor/on",
@@ -48,6 +50,7 @@
     "pages/supervisor/updateQuotaState",
     "pages/supervisor/talkList",
     "pages/supervisor/talk",
+    "pages/supervisor/talkSend",
 
     "pages/designer/index",
     "pages/designer/on",
@@ -60,10 +63,12 @@
     "pages/designer/sign",
     "pages/designer/talkList",
     "pages/designer/talk",
+    "pages/designer/talkSend",
     
     "pages/customer/index",
     "pages/customer/check",
     "pages/customer/talk",
+    "pages/customer/talkSend",
 
     "pages/purchase/index",
     "pages/purchase/on",
