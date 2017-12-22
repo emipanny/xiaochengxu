@@ -2,8 +2,7 @@
 let app = getApp();
 exports.getUserInfo = () => new Promise((resolve, reject) => {
   wx.login({
-    success: (res) => {
-      //console.log(JSON.stringify(res.code));
+    success: res => {
       if (res.code) {
         let { code } = res;
         wx.getUserInfo({
@@ -25,7 +24,7 @@ exports.request = (url, data, option) => new Promise((resolve, reject) => {
     url: url,
     header: { sessionID },
     data: data,
-    success: (res) => {
+    success: res => {
       if(res.statusCode == 200){
         if (res.data == 11001) {
           wx.setStorageSync('errorMsg', { errcode: 11001, errmsg: "参数错误" });
@@ -58,7 +57,7 @@ exports.request = (url, data, option) => new Promise((resolve, reject) => {
         reject;
       }
     },
-    fail:  (res) => {
+    fail:  res => {
       reject(res.data)
     }
   })
@@ -79,7 +78,7 @@ exports.checkLocation = () => new Promise((resolve, reject) => {
               content: '若不授权位置，将无法使用小程序的功能；点击授权按钮，则可重新获得授权并使用。',
               cancelText: "不授权",
               confirmText: "授权",
-              success:  (res) => {
+              success:  res => {
                 if (res.confirm) {
                   wx.openSetting({
                     success: (res) => {
@@ -108,7 +107,7 @@ exports.chooseImage = () => new Promise((resolve, reject) => {
     count: 1,
     sizeType: ['original', 'compressed'], // 可以指定是原图还是压缩图，默认二者都有
     sourceType: ['album', 'camera'], // 可以指定来源是相册还是相机，默认二者都有
-    success:  (res) =>{
+    success:  res =>{
       let file = res.tempFilePaths[0];
       resolve(file)
     },
@@ -144,7 +143,7 @@ exports.uploadFile = (url, data) => new Promise((resolve, reject) => {
         sessionID
       },
       formData: { id },
-      success: function (res) {
+      success: res => {
         wx.hideLoading();
         if (res.statusCode == 200) {
           let mess = JSON.parse(res.data);
@@ -170,10 +169,10 @@ exports.uploadFile = (url, data) => new Promise((resolve, reject) => {
 })
 exports.getSystemInfo = () => new Promise((resolve, reject) => {
   wx.getSystemInfo({
-    success:  (res) => {
+    success:  res => {
       resolve(res);
     },
-    fail: (err) => {
+    fail: err => {
       reject();
     }
 
@@ -181,7 +180,6 @@ exports.getSystemInfo = () => new Promise((resolve, reject) => {
 })
 
 exports.navigateTo = (url) => {
-  console.log(app.globalData.isNavigateTo);
   if (!app.globalData.isNavigateTo) {
     app.globalData.isNavigateTo = true;
     wx.navigateTo({
@@ -194,7 +192,6 @@ exports.navigateTo = (url) => {
 }
 exports.navigateBack = (url) => {
  
-  console.log(app.globalData.isNavigateTo);
   if (!app.globalData.isNavigateTo) {
     app.globalData.isNavigateTo = true;
     wx.navigateBack({
@@ -220,10 +217,10 @@ exports.redirectTo = (url) => {
 exports.getLocation = () => new Promise((resolve, reject) => {
   wx.getLocation({
     type: 'wgs84',
-    success:  (res) => {
+    success:  res => {
       resolve(res);
     },
-    fail:  (err) => {
+    fail:  err => {
       reject();
     }
   })

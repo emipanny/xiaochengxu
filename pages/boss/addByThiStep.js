@@ -1,9 +1,6 @@
-// pages/boss/addByThiStep.js
+
 Page({
 
-  /**
-   * 页面的初始数据
-   */
   data: {
     projectID:0,
     header: {
@@ -17,19 +14,14 @@ Page({
   
   },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
   onLoad: function (options) {
-    let that = this 
-    that.data.projectID = options.projectID
+    this.data.projectID = options.projectID
   },
   allot: function () {
-    let that = this 
     wx.removeStorageSync('createProject'); 
-    console.log(that.data.projectID)
+    console.log(this.data.projectID)
     wx.redirectTo({
-      url: '../index/allot?id=' + that.data.projectID
+      url: '../index/allot?id=' + this.data.projectID
     })
   }
 

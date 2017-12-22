@@ -1,4 +1,4 @@
-<!--pages/foreman/report.wxml-->
+
 
 <view id="main">
   <view class="li {{list.state == 1 ? 'listOrder' : ''}}" wx:for="{{material}}" wx:for-item="list" wx:key="qg"  bindtap="arrive" data-id="{{list.id}}">

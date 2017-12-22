@@ -1,4 +1,4 @@
-<!--pages/index/error.wxml-->
+
 <view class="warningImg">
   <image src='http://www.envisioneer.cn/assets/web/images/xcx/warning.png' ></image>
 </view>

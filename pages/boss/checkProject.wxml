@@ -1,4 +1,4 @@
-<!--pages/boss/add.wxml-->
+
 
 <view class="swiper-tab">  
     <view class="swiper-tab-list {{currentTab==0 ? 'on' : ''}}" data-current="0" bindtap="swichNav">基本信息</view>  
@@ -7,7 +7,6 @@
 </view>  
 
 <swiper current="{{currentTab}}" class="swiper-box" duration="300" style="height:{{winHeight}}px" bindchange="bindChange">  
-    <!-- 我是哈哈 -->  
     <swiper-item>  
       <view class="msg">
         <view class="midAct" bindtap="checkgoods">查看产品详情</view>
@@ -46,7 +45,6 @@
         <text class="userType">业主</text>
       </view>
     </swiper-item>  
-    <!-- 我是嘿嘿 -->  
     <swiper-item>  
       <view wx:if="{{goods.length > 0}}">
         <view class="pList" wx:for="{{goods}}" id ="on_{{item.id}}" wx:key="on"  data-name="{{item.id}}" bindtap="showAct">

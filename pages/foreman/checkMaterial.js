@@ -1,12 +1,9 @@
-// pages/foreman/checkQuota.js
+
 const util = require('../../utils/util');
 const api = require('../../utils/api');
 const app = getApp();
 Page({
 
-  /**
-   * 页面的初始数据
-   */
   data: {
     id: 0,
     info: null,
@@ -18,15 +15,11 @@ Page({
     winHeight: app.globalData.winHeight,
   },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
   onLoad: function (options) {
-    let that = this;
     let id = options.id;
     let url = "https://xcx.envisioneer.cn/foreman/checkMaterial";
     api.request(url, { id })
-      .then(function (res) {
+      .then( res => {
         let { material, purchase, users} = res;
         material.date = util.formatUnixToDate(material.time);
         material.time = util.formatUnixToTime(material.time);
@@ -34,7 +27,7 @@ Page({
         for (let i = 0; i < purchase.length; i++){
           data[data.length] = purchase[i].uid;
         }
-        that.setData({
+        this.setData({
           id: id,
           info: material,
           users: users,
@@ -78,8 +71,6 @@ Page({
   },
   usercheckboxChange: function (e) {
     this.data.usersChoose = e.detail.value;
-
-    console.log(this.data.usersChoose)
   },
   userSure: function (e) {
     let usersChoose = this.data.usersChoose;
@@ -88,7 +79,6 @@ Page({
       editShow: true,
       purchase: usersChoose
     })
-    console.log(this.data)
   },
   back: function () {
     wx.navigateBack({
@@ -97,9 +87,8 @@ Page({
   },
   send: function () {
     let { id, info, purchase} = this.data;
-    let that = this;
     api.request("https://xcx.envisioneer.cn/foreman/editMaterial", { id, info, purchase})
-      .then(function (res) {
+      .then( res => {
         if (res == 22001) {
           wx.showModal({
             title: '提示',
@@ -108,7 +97,7 @@ Page({
           })
         }
         else {
-          that.back();
+          this.back();
         }
       })
   },

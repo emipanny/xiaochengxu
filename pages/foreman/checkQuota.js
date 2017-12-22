@@ -1,26 +1,19 @@
-// pages/foreman/checkQuota.js
+
 const util = require('../../utils/util');
 const api = require('../../utils/api');
 const app = getApp();
 Page({
 
-  /**
-   * 页面的初始数据
-   */
   data: {
     id: 0,
     info: null,
   },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
   onLoad: function (options) {
-    let that = this;
     let id = options.id;
     let url = "https://xcx.envisioneer.cn/foreman/checkQuota";
     api.request(url,{id})
-      .then(function (res) {
+      .then( res => {
         res.start_time = util.formatUnixToDate(res.start_time);
         res.end_time = util.formatUnixToDate(res.end_time - 86400);
         res.supervisor_start_date = util.formatUnixToDate(res.supervisor_start);
@@ -31,7 +24,7 @@ Page({
         res.designer_start_time = util.formatUnixToTime(res.designer_start);
         res.designer_end_date = util.formatUnixToDate(res.designer_end);
         res.designer_end_time = util.formatUnixToTime(res.designer_end);
-        that.setData({
+        this.setData({
           id: id,
           info: res,
         })
@@ -124,9 +117,8 @@ Page({
   },
   send: function () {
     let {id, info} = this.data;
-    let that = this;
     api.request("https://xcx.envisioneer.cn/foreman/editQuota", { id, info})
-      .then(function (res) {
+      .then( res => {
         if (res == 22001) {
           wx.showModal({
             title: '提示',
@@ -135,7 +127,7 @@ Page({
           })
         }
         else {
-          that.back();
+          this.back();
         }
       })
   },

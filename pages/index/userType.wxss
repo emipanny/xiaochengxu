@@ -1,4 +1,4 @@
-/* pages/index/userType.wxss */
+
 page{background: #ffffff;}
 #userTypeTitle {
   width: 100%;

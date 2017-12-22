@@ -1,4 +1,4 @@
-<!--pages/boss/add.wxml-->
+
 <import src="addHeader.wxml"/>
 <template is="header" data="{{...header}}"/>
 <view class="msg">

@@ -1,6 +1,4 @@
 var api = require('../../utils/api')
-//index.js
-//获取应用实例
 var app = getApp()
 Page({
   data: {
@@ -8,7 +6,6 @@ Page({
     option: null
   },
   login: function () {
-    var that = this;
     wx.getSetting({
       success(res) {
         //判断用户信息是否授权
@@ -16,7 +13,7 @@ Page({
           wx.authorize({
             scope: 'scope.userInfo',
             success() {
-              that.checkUser();
+              this.checkUser();
             },
             fail() { //发现未授权，弹出警告，指引用户授权
               wx.showModal({
@@ -24,11 +21,10 @@ Page({
                 content: '若不授权登陆，将无法使用小程序的功能；点击授权按钮，则可重新获得授权并使用。',
                 cancelText: "不授权",
                 confirmText: "授权",
-                success: function (res) {
+                success:  res => {
                   if (res.confirm) {
                     wx.openSetting({
-                      success: (res) => {
-                        console.log(res);
+                      success: res => {
                         res.authSetting = {
                           "scope.userInfo": true
                         }
@@ -50,10 +46,9 @@ Page({
     })
   },
   onLoad: function (option) {
-    var that = this
     //调用应用实例的方法获取全局数据
-    app.getUserInfo(function (userInfo){
-      that.setData({
+    app.getUserInfo( userInfo =>{
+      this.setData({
         userInfo: userInfo
       })
     })
@@ -63,11 +58,9 @@ Page({
     })
   },
   checkUser: function () {
-    var that = this
-
     api.getUserInfo()
-      .then((res) => {
-        that.setData({
+      .then( res => {
+        this.setData({
           userInfo: res.userInfo,
         })
         wx.request({
@@ -77,7 +70,7 @@ Page({
             encryptedData: res.encryptedData,
             iv: res.iv,
           },
-          success: function (res) {
+          success: res => {
             if (res.data.errcode) {
               wx.setStorageSync('errorMsg', res.data)
               api.redirectTo('../pages/index/error');
@@ -86,7 +79,6 @@ Page({
               if (res.data.type_id == 0)
                 api.redirectTo('../index/userType');
               else if (app.globalData.moveback) {
-                console.log(app.globalData.moveback);
                 let str = app.globalData.moveback;
                 app.globalData.moveback = null;
                 api.redirectTo(str);
@@ -107,7 +99,7 @@ Page({
 
             }
           },
-          fail: function (res) {
+          fail:  res => {
             console.log("fail",res.data);
           }
         })

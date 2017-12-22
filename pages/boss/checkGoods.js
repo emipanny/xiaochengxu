@@ -1,14 +1,12 @@
-// pages/boss/checkProject.js
+
 const util = require('../../utils/util');
 const api = require('../../utils/api');
+const app = getApp();
 Page({
 
-  /**
-   * 页面的初始数据
-   */
   data: {
-    winWidth: 0,
-    winHeight: 0,
+    winWidth: app.globalData.winWidth,
+    winHeight: app.globalData.winHeight - 40,
     // tab切换  
     currentTab: 1,
     artificial: Array(),//人工
@@ -19,27 +17,15 @@ Page({
     material: Array(),  //装修主材
   },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
   onLoad: function (options) {
     wx.showLoading({
       title: '加载中',
     })
-    let that = this
-    //let id = options.id;
     let id = options.id;
     let url = "https://xcx.envisioneer.cn/boss/getProjectGoods";
     let data = { id };
-    let winWidth = 0;
-    let winHeight = 0;
-    api.getSystemInfo()
-      .then(function (res) {
-        winWidth = res.windowWidth;
-        winHeight = res.windowHeight;
-        return api.request(url, data)
-      })
-      .then(function (res) {
+    api.request(url, data)
+      .then( res => {
         let goods = Array();
         goods[0] = Array();
         goods[1] = Array();
@@ -78,43 +64,33 @@ Page({
           }
         }
 
-        that.setData({
+        this.setData({
           artificial: goods[0],
           quota: goods[1],
           build: goods[2],
           soft: goods[3],
           material: goods[4],
-          winWidth: winWidth,
-          winHeight: winHeight - 40,
         })
         wx.hideLoading()
       })
     wx.setNavigationBarTitle({
       title: '产品详情'
     })
-    console.log(this.data.currentTab)
   },
   checkmap: function () {
-    let that = this
     wx.openLocation({
-      latitude: that.data.info.latitude,
-      longitude: that.data.info.longitude,
-      success: function (res) {
+      latitude: this.data.info.latitude,
+      longitude: this.data.info.longitude,
+      success:  (res) =>{
 
       }
     })
   },
-  /** 
-   * 点击tab切换 
-   */
   swichNav: function (e) {
-
-    var that = this;
-
     if (this.data.currentTab === e.target.dataset.current) {
       return false;
     } else {
-      that.setData({
+      this.setData({
         currentTab: e.target.dataset.current
       })
     }

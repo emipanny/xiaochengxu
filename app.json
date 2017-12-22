@@ -1,7 +1,6 @@
 {
   "pages":[
     "pages/index/index",
-    "pages/index/login",
     "pages/index/error",
     "pages/index/userType",
     "pages/index/allot",
@@ -9,8 +8,6 @@
 
     "pages/boss/index",
     "pages/boss/on",
-    "pages/boss/will",
-    "pages/boss/end",
     "pages/boss/add",
     "pages/boss/addBySecStep",
     "pages/boss/addByThiStep",

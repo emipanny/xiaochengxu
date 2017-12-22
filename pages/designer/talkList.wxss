@@ -1,4 +1,4 @@
-/* pages/project/on.wxss */
+
 page {
   background: #fff;
   overflow: auto;

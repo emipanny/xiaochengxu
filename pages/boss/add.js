@@ -1,11 +1,7 @@
 const util = require('../../utils/util'); 
 const api = require('../../utils/api');
-// pages/boss/add.js
 Page({
 
-  /**
-   * 页面的初始数据
-   */
   data: {
     date: util.formatDate(new Date),
     title: "",
@@ -39,18 +35,13 @@ Page({
       date: e.detail.value
     })
   },
-  /**
-   * 生命周期函数--监听页面加载
-   */
   onLoad: function (options) {
     wx.setNavigationBarTitle({
       title: '创建项目'
     })
   },
   nextStep: function () {
-    let that = this;
-    let { title, schedule, amount, name, address, latitude, longitude, detailed_address, content, date, distance } = that.data;
-    console.log(that.data);
+    let { title, schedule, amount, name, address, latitude, longitude, detailed_address, content, date, distance } = this.data;
     if (!title || !schedule || !amount || !name || !address || !latitude || !longitude || !detailed_address || !date || !distance){
 
       console.log(title);
@@ -80,18 +71,16 @@ Page({
     }
   },
   getPosition: function (e) {
-    let that = this
     wx.showLoading({
       title: '加载中',
       mask: true
     })
     api.checkLocation()
-      .then(function () {
+      .then( () => {
         wx.chooseLocation({
           type: 'gcj02', //返回可以用于wx.openLocation的经纬度
-          success: function (res) {
-            console.log(res)
-            that.setData({
+          success:  (res) => {
+            this.setData({
               name: res.name,
               address: res.address,
               latitude: res.latitude,
@@ -99,7 +88,6 @@ Page({
             })
           },
           fail: function (res) {
-            console.log("222", res);
             wx.showModal({
               title: '提示',
               showCancel: false,

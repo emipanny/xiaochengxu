@@ -3,16 +3,13 @@
 const util = require('../../utils/util');
 const api = require('../../utils/api');
 Page({
-
   data: {
     id : null,
     type_id : null,
     choose: 0,
     currentTab: 0,
     img: null
-  
   },
-
   onLoad: function (options) {
     let {id ,type_id} = options;
     this.setData({
@@ -29,7 +26,6 @@ Page({
     })
   },
 
-
   send: function (e) {
     let { id, user, choose, currentTab} = this.data;
     let formId = e.detail.formId;
@@ -43,7 +39,7 @@ Page({
         let url = "https://xcx.envisioneer.cn/foreman/sendTalkText";
         let data = { value, id, formId };
         api.request(url, data)
-        .then( (res) => {
+        .then( res => {
           if (res == 1) {
             wx.navigateBack({
               delta: 1
@@ -61,7 +57,7 @@ Page({
           title: '上传中。。。',
         })
         api.uploadFile(url, { id, img })
-        .then( (res) =>{
+        .then( res =>{
           if (res.success == "1") {
             wx.navigateBack({
               delta: 1
@@ -73,14 +69,13 @@ Page({
   },
   upImg: function () {
     api.chooseImage()
-      .then( (res) => {
+      .then( res => {
         this.setData({
           img: res
         })
       })
   },
   swichNav: function (e) {
-
     if (this.data.currentTab === e.target.dataset.current) {
       return false;
     } else {

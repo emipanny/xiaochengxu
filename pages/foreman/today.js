@@ -1,19 +1,17 @@
-// pages/boss/checkProject.js
+
 const util = require('../../utils/util');
 const api = require('../../utils/api');
 const app = getApp();
 Page({
 
-  /**
-   * 页面的初始数据
-   */
   data: {
     projects: Array(),     //阶段
   },
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
+  onLoad: function () {
+    wx.setNavigationBarTitle({
+      title: '今天待办事项'
+    })
+  },
   onShow: function () {
     this.init()
   },
@@ -21,14 +19,12 @@ Page({
     wx.showLoading({
       title: '加载中',
     })
-    let that = this;
     let now = Date.now() / 1000 | 0;
     let nowDay = util.formatUnixToDate(now);
     let nowTime = util.formatDateUnix(nowDay);
     let url = "https://xcx.envisioneer.cn/foreman/getToday";
     api.request(url)
-      .then(function (res) {
-        console.log(res);
+      .then( res => {
         let {projects} = res;
         for(let i = 0; i < projects.length; i++){
           let {quota} = projects[i];
@@ -56,14 +52,11 @@ Page({
             projects[i].material[j].into = time;
           }
         }
-        that.setData({
+        this.setData({
           projects: projects,
         })
         wx.hideLoading();
       })
-    wx.setNavigationBarTitle({
-      title: '今天待办事项'
-    })
 
   },
   call: function(e){

@@ -1,26 +1,17 @@
-// pages/boss/checkProject.js
+
 const util = require('../../utils/util');
 const api = require('../../utils/api');
 const app = getApp();
 Page({
 
-  /**
-   * 页面的初始数据
-   */
   data: {
     info: null
   
   },
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
   onLoad: function () {
-    let that = this;
     api.request("https://xcx.envisioneer.cn/purchase/getUser")
-      .then(function(res){
-        console.log(res);
-        that.setData({
+      .then( res => {
+        this.setData({
           info: res
         })
       })
@@ -31,7 +22,6 @@ Page({
     this.setData({
       info: info,
     })
-    console.log(this.data)
   },
   changePhone: function (e) {
     let { info } = this.data;
@@ -41,14 +31,13 @@ Page({
     })
   },
   send: function(){
-    let that = this;
     let {realname, phone} = this.data.info; 
     let data = { realname, phone };
     if ( realname   && phone ){
       api.request("https://xcx.envisioneer.cn/purchase/updateUser",{realname, phone})
-        .then(function(res){
+        .then( res => {
           if (res.success == 1){
-            that.setData({
+            this.setData({
               info: data,
             })
             wx.showToast({

@@ -1,4 +1,4 @@
-<!--pages/index/userType.wxml-->
+
 <view id="userTypeTitle">选择身份</view>
 <view id="userTypes">
   <li class="fl" data-user-type="1" bindtap="chooseType">项目经理</li>

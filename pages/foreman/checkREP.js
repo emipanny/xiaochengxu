@@ -1,22 +1,19 @@
-// pages/boss/checkProject.js
+
 const util = require('../../utils/util');
 const api = require('../../utils/api');
 const app = getApp();
 Page({
 
-  /**
-   * 页面的初始数据
-   */
   data: {
     id: 0,
     stage: Array(),     //阶段
   },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
   onLoad: function (options) {
     this.data.id = options.id;
+    wx.setNavigationBarTitle({
+      title: '项目预览'
+    })
   },
   onShow: function () {
     let id = this.data.id;
@@ -26,33 +23,27 @@ Page({
     wx.showLoading({
       title: '加载中',
     })
-    let that = this
     let url = "https://xcx.envisioneer.cn/foreman/checkREP";
     let data = { id };
     api.request(url, data)
-      .then(function (res) {
+      .then( res => {
         let stage = res.stage;
-        stage.forEach(function (item) {
+        stage.forEach( item => {
           item.start_time = util.formatUnixToDate(item.start_time);
           item.end_time = util.formatUnixToDate(item.end_time);
-          item.quota.forEach(function (list) {
+          item.quota.forEach( list => {
             list.diff = (list.num - list.consumption).toFixed(2);
           })
         });
-        that.setData({
+        this.setData({
           stage: res.stage
         })
         wx.hideLoading()
       })
-    wx.setNavigationBarTitle({
-      title: '项目预览'
-    })
-
   },
   act: function (e) {
-    let that = this
     let { data, stage } = e.currentTarget.dataset;
-    let { material, build, soft } = that.data;
+    let { material, build, soft } = this.data;
     let material2, build2, soft2;
     for (let key in material) {
       if (stage == material[key].title) {
@@ -106,12 +97,10 @@ Page({
     })
   },
   checkQuota: function (e) {
-    let that = this
     let { id } = e.currentTarget.dataset;
     api.navigateTo("./checkQuota?id=" + id);
   },
   checkMaterial: function (e) {
-    let that = this
     let { id } = e.currentTarget.dataset;
     api.navigateTo("./checkMaterial?id=" + id);
   },

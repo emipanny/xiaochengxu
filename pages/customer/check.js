@@ -1,12 +1,9 @@
-// pages/boss/checkProject.js
+
 const util = require('../../utils/util');
 const api = require('../../utils/api');
 const app = getApp();
 Page({
 
-  /**
-   * 页面的初始数据
-   */
   data: {
     quota: Array(),
     material: Array(),
@@ -18,9 +15,6 @@ Page({
     date: "",
   },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
   onLoad: function (option) {
     let {id, time} = option;
     this.init(id, time);
@@ -29,10 +23,10 @@ Page({
     wx.showLoading({
       title: '加载中',
     })
-    let that = this;
     let url = "https://xcx.envisioneer.cn/customer/check";
     api.request(url, { id, time })
-      .then(function (res) {
+      .then( (res) => {
+        console.log(time);
         let { project, quota, material} = res;
         for (let j = 0; j < quota.length; j++) {
           let all = (Number(quota[j].end_time) - Number(quota[j].start_time)) / 86400;
@@ -56,7 +50,7 @@ Page({
           let timeA = util.formatUnixToTime(material[j].time);
           material[j].into = timeA;
         }
-        that.setData({
+        this.setData({
           id: id,
           time: time,
           quota: quota,

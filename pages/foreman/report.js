@@ -1,12 +1,9 @@
-// pages/boss/checkProject.js
+
 const util = require('../../utils/util');
 const api = require('../../utils/api');
 const app = getApp();
 Page({
 
-  /**
-   * 页面的初始数据
-   */
   data: {
     id:0,
     stage: Array(),     //阶段
@@ -14,15 +11,14 @@ Page({
     build: Array(),     //建筑辅料
     soft: Array(),      //家居软装
     material: Array(),  //装修主材
-    winWidth: 0,
-    winHeight: 0,
+    winWidth: app.globalData.winWidth,
+    winHeight: app.globalData.winHeight,
   },
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
   onLoad: function (options) {
     this.data.id = options.id;
+    wx.setNavigationBarTitle({
+      title: '产品详情'
+    })
   },
   onShow: function () {
     let id = this.data.id;
@@ -32,19 +28,12 @@ Page({
     wx.showLoading({
       title: '加载中',
     })
-    let that = this
     let build, soft, material, list;
     app.globalData.url = "../foreman/report?id=" + id;
     let url = "https://xcx.envisioneer.cn/foreman/getProjectStage";
     let data = { id };
-    let winWidth = 0, winHeight = 0;
-    api.getSystemInfo()
-      .then(function (res) {
-        winWidth = res.windowWidth;
-        winHeight = res.windowHeight;
-        return api.request(url, data)
-      })
-      .then(function (res) {
+    api.request(url, data)
+      .then( res => {
         let { stage, goods, quota, mate } = res;
 
         let data = Array();
@@ -135,14 +124,14 @@ Page({
         }
         if (isOver) {
           api.request("https://xcx.envisioneer.cn/foreman/changeProjectState",{id})
-            .then(function(res){
+            .then(  res => {
               if(res == 1){
                 wx.hideLoading();
                 wx.showModal({
                   title: '提示',
                   content: '该项目已经编辑完成，点击确定返回项目信息',
                   showCancel: false,
-                  success: function (res) {
+                  success:  res => {
                     if (res.confirm) {
                       wx.navigateBack({
                         delta: 1
@@ -154,28 +143,22 @@ Page({
             })
         }
         else {
-          that.setData({
+          this.setData({
             id: id,
             stage: data[0],
             build: data[1],
             soft: data[2],
             material: data[3],
-            winWidth: winWidth,
-            winHeight: winHeight,
           })
           wx.hideLoading()
         }
 
       })
-    wx.setNavigationBarTitle({
-      title: '产品详情'
-    })
 
   },
   act: function (e) {
-    let that = this
     let {data,stage} = e.currentTarget.dataset;
-    let { material, build, soft } = that.data;
+    let { material, build, soft } = this.data;
     let material2, build2, soft2;
     for (let key in material) {
       if (stage == material[key].title) {
@@ -196,8 +179,7 @@ Page({
       }
     }
     app.globalData.tempdata = data;
-    console.log(111);
-    api.navigateTo("./edit?id=" + that.data.id);
+    api.navigateTo("./edit?id=" + this.data.id);
 
 
   },

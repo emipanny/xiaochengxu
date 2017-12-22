@@ -1,13 +1,10 @@
-// pages/foreman/talk.js
+
 const util = require('../../utils/util');
 const api = require('../../utils/api');
 const comment = require('../../utils/comment');
 const app = getApp();
 Page({
 
-  /**
-   * 页面的初始数据
-   */
   data: {
     id: null,
     content: Array(),
@@ -18,9 +15,6 @@ Page({
     scrollTop: 0,
   },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
   onLoad: function (options) {
     this.data.id = options.id;
     this.init();
@@ -36,8 +30,8 @@ Page({
     let url = "https://xcx.envisioneer.cn/designer/getTalks";
     let data = { id: id };
     api.request(url, data)
-      .then( (res) => {
-        res.content.forEach( (item) => {
+      .then( res => {
+        res.content.forEach( item => {
           item.created_at = util.formatUnixToDT(item.created_at);
         });
 

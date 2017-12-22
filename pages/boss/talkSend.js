@@ -10,9 +10,7 @@ Page({
     choose: 0,
     currentTab: 0,
     img: null
-  
   },
-
   onLoad: function (options) {
     let {id ,type_id} = options;
     

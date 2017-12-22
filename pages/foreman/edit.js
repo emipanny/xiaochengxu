@@ -1,12 +1,9 @@
-// pages/foreman/edit.js
+
 const util = require('../../utils/util');
 const api = require('../../utils/api');
 const app = getApp();
 Page({
 
-  /**
-   * 页面的初始数据
-   */
   data: {
     id: 0,
     info: null,
@@ -35,9 +32,6 @@ Page({
     winHeight: app.globalData.winHeight,
   },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
   onLoad: function (e) {
     let that = this;
     let data = app.globalData.tempdata;
@@ -51,8 +45,8 @@ Page({
     let id = e.id;
 
     api.request("https://xcx.envisioneer.cn/foreman/getUsers",{id})
-      .then(function(res){
-        that.setData({
+      .then( res => {
+        this.setData({
           info: data,
           material: material,
           build: build,
@@ -72,7 +66,6 @@ Page({
     this.setData({
       info: info
     })
-    console.log(this.data);
 
   },
   materialShow: function () {
@@ -210,7 +203,6 @@ Page({
     this.setData({
       materialSure: materialSure,
     })
-    console.log(this.data);
   },
   materialbindTimeChange: function (e) {
     let goodsNo = e.currentTarget.dataset.id;
@@ -225,7 +217,6 @@ Page({
     this.setData({
       materialSure: materialSure,
     })
-    console.log(this.data);
   },
 
   buildbindDateChange: function (e) {
@@ -241,7 +232,6 @@ Page({
     this.setData({
       buildSure: buildSure,
     })
-    console.log(this.data);
   },
   buildbindTimeChange: function (e) {
     let goodsNo = e.currentTarget.dataset.id;
@@ -256,7 +246,6 @@ Page({
     this.setData({
       buildSure: buildSure,
     })
-    console.log(this.data);
   },
 
   softbindDateChange: function (e) {
@@ -272,7 +261,6 @@ Page({
     this.setData({
       softSure: softSure,
     })
-    console.log(this.data);
   },
   softbindTimeChange: function (e) {
     let goodsNo = e.currentTarget.dataset.id;
@@ -287,7 +275,6 @@ Page({
     this.setData({
       softSure: softSure,
     })
-    console.log(this.data);
   },
   startDate: function (e) {
     let date = e.detail.value;
@@ -409,12 +396,11 @@ Page({
     console.log(data);
   },
   send: function (){
-    let that = this;
-    let quota = that.data.info;
-    let material = that.data.materialSure;
-    let build = that.data.buildSure;
-    let soft = that.data.softSure;
-    let { id, startDate, endDate, supervisor_start_date, supervisor_end_date, supervisor_start_time, supervisor_end_time, designer_start_date, designer_end_date, designer_start_time, designer_end_time} = that.data; 
+    let quota = this.data.info;
+    let material = this.data.materialSure;
+    let build = this.data.buildSure;
+    let soft = this.data.softSure;
+    let { id, startDate, endDate, supervisor_start_date, supervisor_end_date, supervisor_start_time, supervisor_end_time, designer_start_date, designer_end_date, designer_start_time, designer_end_time } = this.data; 
     let url = "https://xcx.envisioneer.cn/foreman/save";
     let start_time = util.formatDateUnix(startDate);
     let end_time = util.formatDateUnix(endDate);
@@ -459,7 +445,7 @@ Page({
     }
     
     api.request(url, data)
-      .then(function(res){
+      .then( res => {
         if(res == 1){
           wx.navigateBack({
             delta: 1

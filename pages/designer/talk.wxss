@@ -1,4 +1,4 @@
-/* pages/foreman/talk.wxss */
+
 .talk {
   width: 95%;
   margin: 20rpx auto;

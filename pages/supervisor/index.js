@@ -1,7 +1,5 @@
 var api = require('../../utils/api');
 var comment = require('../../utils/comment');
-//index.js
-//获取应用实例
 var app = getApp()
 Page({
   data: {
@@ -12,7 +10,6 @@ Page({
     countWill: 0,
     newMessage: 0,
   },
-  //事件处理函数
   bindViewTap: function () {
     wx.navigateTo({
       url: '../logs/logs'
@@ -60,7 +57,7 @@ Page({
   },
   onShow: function () {
     api.request("https://xcx.envisioneer.cn/supervisor/getHome", {})
-      .then( (res) => {
+      .then( res => {
         let saveCount = comment.allMessageCount();
         let all = 0;
         let newMessage = 0;

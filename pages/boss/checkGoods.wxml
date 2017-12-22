@@ -1,4 +1,4 @@
-<!--pages/boss/add.wxml-->
+
 
 <view class="swiper-tab">  
     <view class="swiper-tab-list {{currentTab==1 ? 'on' : ''}}" data-current="1" bindtap="swichNav">人工</view>  

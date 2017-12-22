@@ -1,4 +1,4 @@
-<!--pages/foreman/report.wxml-->
+
   <view id="main" wx:if="{{quota.length > 0 || material.length > 0}}">
     <view class="data" wx:if="{{quota.length > 0}}">
       <view class="data-title">施工</view>
@@ -29,7 +29,7 @@
             <view class="liA_2">{{material.num}}{{material.unit}}</view>
           </view>
           <view class="clear"></view>
-          <view class="liB" bindtap="updateMaterialState" data-id="{{material.id}}">{{material.title}}</view>
+          <view class="liB" data-id="{{material.id}}">{{material.title}}</view>
           <view class="liD" wx:if="{{material.users.length}}"  wx:for="{{material.users}}" wx:for-item="user" wx:key="ug">
             配送：{{user.nickname}}-{{user.realname}}-{{user.phone}}
           </view>

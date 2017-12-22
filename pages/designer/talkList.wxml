@@ -5,7 +5,6 @@
     <view class="swiper-tab-list {{currentTab==2 ? 'on' : ''}}" data-current="2" bindtap="swichNav">已完成({{endList.length}})</view>  
 </view>  
 <swiper current="{{currentTab}}" class="swiper-box" duration="300" style="height:{{winHeight}}px" bindchange="bindChange">  
-    <!-- 我是哈哈 -->  
     <swiper-item>  
       <view wx:if="{{onList.length == 0}}">暂无项目</view>  
       <view wx:if="{{onList.length > 0}}">
@@ -21,7 +20,6 @@
         </view>
       </view>
     </swiper-item>  
-    <!-- 我是呵呵 -->  
     <swiper-item>  
       <view wx:if="{{willList.length == 0}}">暂无项目</view>  
       <view wx:if="{{willList.length > 0}}">
@@ -37,7 +35,6 @@
         </view>
       </view>
     </swiper-item>  
-    <!-- 我是嘿嘿 -->  
     <swiper-item>  
       <view wx:if="{{endList.length == 0}}">暂无项目</view>  
       <view wx:if="{{endList.length > 0}}">

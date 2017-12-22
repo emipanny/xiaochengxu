@@ -28,11 +28,8 @@ Page({
       choose: e.detail.value
     })
   },
-
-
   send: function (e) {
-    let that = this;
-    let { id, user, choose, currentTab} = that.data;
+    let { id, user, choose, currentTab} = this.data;
     let formId = e.detail.formId;
     let value = e.detail.value.mes;
     if (currentTab == 0) {
@@ -44,7 +41,7 @@ Page({
         let url = "https://xcx.envisioneer.cn/designer/sendTalkText";
         let data = { value, id, formId };
         api.request(url, data)
-        .then(function (res) {
+        .then( res => {
           if (res == 1) {
             wx.navigateBack({
               delta: 1
@@ -55,15 +52,14 @@ Page({
     }
     else if (currentTab == 1) {
       let url = "https://xcx.envisioneer.cn/designer/sendTalkImg";
-      let that = this;
-      let { id, img } = that.data;
+      let { id, img } = this.data;
       if (img) {
         wx.showLoading({
           mask: true,
           title: '上传中。。。',
         })
         api.uploadFile(url, { id, img })
-        .then(function (res) {
+        .then( res => {
           if (res.success == "1") {
             wx.navigateBack({
               delta: 1
@@ -74,22 +70,18 @@ Page({
     }
   },
   upImg: function () {
-    let that = this;
     api.chooseImage()
-      .then(function (res) {
-        that.setData({
+      .then( res => {
+        this.setData({
           img: res
         })
       })
   },
   swichNav: function (e) {
-
-    var that = this;
-
     if (this.data.currentTab === e.target.dataset.current) {
       return false;
     } else {
-      that.setData({
+      this.setData({
         currentTab: e.target.dataset.current
       })
     }

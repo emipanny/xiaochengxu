@@ -1,13 +1,10 @@
-// pages/foreman/talk.js
+
 const util = require('../../utils/util');
 const api = require('../../utils/api');
 const comment = require('../../utils/comment'); 
 const app = getApp();
 Page({
 
-  /**
-   * 页面的初始数据
-   */
   data: {
     id: null,
     content: Array(),
@@ -18,12 +15,12 @@ Page({
     scrollTop: 0,
   },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
   onLoad: function (options) {
     this.data.id = options.id;
     this.init();
+    wx.setNavigationBarTitle({
+      title: '留言板'
+    })
   },
   onShow: function () {
     this.init();
@@ -33,8 +30,8 @@ Page({
     let url = "https://xcx.envisioneer.cn/supervisor/getTalks";
     let data = { id: id };
     api.request(url, data)
-      .then( (res) => {
-        res.content.forEach( (item) => {
+      .then( res => {
+        res.content.forEach( item => {
           item.created_at = util.formatUnixToDT(item.created_at);
         });
 
@@ -50,9 +47,6 @@ Page({
         wx.stopPullDownRefresh() //停止下拉刷新
       })
 
-    wx.setNavigationBarTitle({
-      title: '留言板'
-    })
   },
   showImg: function (e) {
     let img = e.currentTarget.dataset.url;

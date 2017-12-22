@@ -1,4 +1,4 @@
-<!--pages/foreman/report.wxml-->
+
 <view class="stage" wx:for="{{stage}}" wx:if="{{list.data.length > 0}}" wx:for-item="list" wx:key="rg">
   <view class="stageName">{{list.title}}</view>
   <view class="quota" wx:if="{{list.data.length > 0}}">

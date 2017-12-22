@@ -1,15 +1,13 @@
-// pages/boss/checkProject.js
+
 const util = require('../../utils/util');
 const api = require('../../utils/api');
+const app = getApp();
 Page({
 
-  /**
-   * 页面的初始数据
-   */
   data: {
     id: 0,
-    winWidth: 0,
-    winHeight: 0,
+    winWidth: app.globalData.winWidth,
+    winHeight: app.globalData.winHeight - 40,
     // tab切换  
     currentTab: 0,
     info:null,
@@ -17,61 +15,38 @@ Page({
     user: null
   },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
   onLoad: function (options) {
-    let that = this
     let id = options.id;
     let url = "https://xcx.envisioneer.cn/boss/getProjectInfo";
     let data = { id };
-    let winWidth = 0;
-    let winHeight = 0;
-    api.getSystemInfo()
-      .then(function (res) {
-        winWidth = res.windowWidth;
-        winHeight = res.windowHeight;
-        return api.request(url, data)
-      })
-      .then(function(res){
+    api.request(url, data)
+      .then( res => {
         res.info.startTime = util.formatDate(new Date(res.info.startTime * 1000));
-        that.setData({
+        this.setData({
           id: id,
           info: res.info,
           goods: res.goods,
           user: res.user,
-          winWidth: winWidth,
-          winHeight: winHeight - 40,
         })
       })
   },
   checkmap: function () {
-    let that = this
     wx.openLocation({
-      latitude: that.data.info.latitude,
-      longitude: that.data.info.longitude,
-      success:function(res){
+      latitude: this.data.info.latitude,
+      longitude: this.data.info.longitude,
+      success: (res) => {
 
       }
     })
   },
   bindChange: function (e) {
-
-    var that = this;
-    that.setData({ currentTab: e.detail.current });
-
+    this.setData({ currentTab: e.detail.current });
   },
-  /** 
-   * 点击tab切换 
-   */
   swichNav: function (e) {
-
-    var that = this;
-
     if (this.data.currentTab === e.target.dataset.current) {
       return false;
     } else {
-      that.setData({
+      this.setData({
         currentTab: e.target.dataset.current
       })
     }
@@ -86,38 +61,36 @@ Page({
     api.navigateTo("../index/allot?id=" + id)
   },
   passUser: function (e) {
-    let that = this;
     let id = e.currentTarget.dataset.id;
     let url = "https://xcx.envisioneer.cn/boss/confirm";
     let user = this.data.user;
     api.request(url,{id})
-      .then(function(res){
+      .then( (res) =>{
         for(let key in user){
           if(user[key].id == id){
             user[key].state = 1;
             break;
           }
         }
-        that.setData({
+        this.setData({
           user: user
         })
       })
   },
   delUser: function (e) {
-    let that = this;
     let id = e.currentTarget.dataset.id;
     let url = "https://xcx.envisioneer.cn/boss/delUser";
     let user = this.data.user;
     let list = Array();
     api.request(url, { id })
-      .then(function (res) {
+      .then( (res) => {
         for (let key in user) {
           if (user[key].id != id) {
             let len = list.length;
             list[len] = user[key];
           }
         }
-        that.setData({
+        this.setData({
           user: list
         })
       })

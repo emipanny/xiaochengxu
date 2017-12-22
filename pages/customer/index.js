@@ -1,9 +1,8 @@
 const util = require('../../utils/util');
 const api = require('../../utils/api');
 var comment = require('../../utils/comment');
-//index.js
-//获取应用实例
-var app = getApp()
+var app = getApp();
+
 Page({
   data: {
     userInfo: {},

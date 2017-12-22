@@ -1,33 +1,29 @@
-// pages/boss/checkProject.js
+
 const util = require('../../utils/util');
 const api = require('../../utils/api');
 const app = getApp();
 Page({
 
-  /**
-   * 页面的初始数据
-   */
   data: {
     id: 0,
     stage: Array(),     //阶段
   },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
   onLoad: function (options) {
     let id = options.id;
     this.init(id);
+    wx.setNavigationBarTitle({
+      title: '项目预览'
+    })
   },
   init: function (id) {
     wx.showLoading({
       title: '加载中',
     })
-    let that = this
     let url = "https://xcx.envisioneer.cn/supervisor/getPreview";
     let data = { id };
     api.request(url, data)
-      .then(function (res) {
+      .then( res => {
         let rejson = res.stage;
         let stage = Array();
         for (let i = 0; i < rejson.length; i++) {
@@ -80,22 +76,17 @@ Page({
             }
           }
         }
-        that.setData({
+        this.setData({
           stage: stage,
           id: id
         })
-        //console.log(that.data.stage);
         wx.hideLoading()
       })
-    wx.setNavigationBarTitle({
-      title: '项目预览'
-    })
 
   },
   act: function (e) {
-    let that = this
     let { data, stage } = e.currentTarget.dataset;
-    let { material, build, soft } = that.data;
+    let { material, build, soft } = this.data;
     let material2, build2, soft2;
     for (let key in material) {
       if (stage == material[key].title) {
@@ -116,8 +107,7 @@ Page({
       }
     }
     app.globalData.tempdata = data;
-    api.navigateTo("./edit?id=" + that.data.id);
-
+    api.navigateTo("./edit?id=" + this.data.id);
 
   },
   order: function (order, stage) { },
@@ -149,12 +139,10 @@ Page({
     })
   },
   checkQuota: function (e) {
-    let that = this
     let { id } = e.currentTarget.dataset;
     api.navigateTo("./checkQuota?id=" + id);
   },
   checkMaterial: function (e) {
-    let that = this
     let { id } = e.currentTarget.dataset;
     api.navigateTo("./checkMaterial?id=" + id);
   },

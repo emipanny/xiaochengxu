@@ -1,4 +1,4 @@
-/* pages/boss/add.wxss */
+
 @import "addHeader.wxss";
 .msg {
   width: 100%;

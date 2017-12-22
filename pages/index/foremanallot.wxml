@@ -1,4 +1,4 @@
-<!--pages/boss/add.wxml-->
+
 <view class="msg">
   <text>项目名称：</text>
   <text>{{title}}</text>

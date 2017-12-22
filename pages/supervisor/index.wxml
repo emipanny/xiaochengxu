@@ -1,5 +1,4 @@
-<!--index.wxml-->
-<view id="projectList">
+<!--index.wxml--><view id="projectList">
   <view id="project-text">
     <li>最近完成</li>
     <li>进行中的任务</li>

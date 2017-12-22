@@ -2,11 +2,12 @@
 const util = require('../../utils/util');
 const api = require('../../utils/api');
 const comment = require('../../utils/comment');
+const app = getApp();
 Page({
 
   data: {
-    winWidth: 0,
-    winHeight: 0,
+    winWidth: app.globalData.winWidth,
+    winHeight: app.globalData.winHeight,
     // tab切换  
     currentTab: 0,
     onList: Array(),
@@ -29,17 +30,10 @@ Page({
     let { currentTab } = this.data; 
     let url = "https://xcx.envisioneer.cn/foreman/getTalkList";
     let data = { by: currentTab };
-    let winWidth = 0;
-    let winHeight = 0;
     let now = Date.parse(new Date()) / 1000;
-    api.getSystemInfo()
-      .then( (res) => {
-        winWidth = res.windowWidth;
-        winHeight = res.windowHeight;
-        return api.request(url, data)
-      })
-      .then( (res) => {
-        res.onList.forEach( (item) => {
+    api.request(url, data)
+      .then( res => {
+        res.onList.forEach( item => {
           item.startTime = util.formatDate(new Date(item.startTime * 1000));
           if (item.endTime > now) {
             item.endTime = parseInt((item.endTime - now) / 86400);
@@ -47,13 +41,13 @@ Page({
             item.compare = comment.compareMessageCount(item.id, item.count);
           }
         });
-        res.endList.forEach( (item) => {
+        res.endList.forEach( item => {
           item.startTime = util.formatDate(new Date(item.startTime * 1000));
           item.endTime = util.formatDate(new Date(item.endTime * 1000));
           item.count = item.count || 0;
           item.compare = comment.compareMessageCount(item.id, item.count);
         });
-        res.willList.forEach( (item) => {
+        res.willList.forEach( item => {
           item.startTime = util.formatDate(new Date(item.startTime * 1000));
           if (item.endTime > now) {
             item.endTime = parseInt((item.endTime - now) / 86400);
@@ -71,12 +65,9 @@ Page({
       });
   },
   bindChange: function (e) {
-
     this.setData({ currentTab: e.detail.current });
-
   },
   swichNav: function (e) {
-
     if (this.data.currentTab === e.target.dataset.current) {
       return false;
     } else {
