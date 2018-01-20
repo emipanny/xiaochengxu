@@ -39,6 +39,7 @@ Page({
             title: '添加成功',
             confirmText: "确定",
           })
+          api.redirectTo("../purchase/index");
         }
       })
   }

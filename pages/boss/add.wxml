@@ -5,7 +5,7 @@
   <text>项目名称</text>
   <input id='title' value="{{title}}" bindinput="inputchange" />
   <text>开工时间</text>
-  <picker mode="date" id="startTime" value="{{date}}" start="2015-09-01" end="2017-09-01" bindchange="bindDateChange">
+  <picker mode="date" id="startTime" value="{{date}}" start="2017-09-01"  bindchange="bindDateChange">
     <view class="picker">
       {{date}}
     </view>

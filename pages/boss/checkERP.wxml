@@ -1,0 +1,20 @@
+
+<view class="stage" wx:for="{{stage}}" wx:if="{{list.quota.length > 0}}" wx:for-item="list" wx:key="rg">
+  <view class="stageName">{{list.title}}</view>
+  <view class="quota" wx:if="{{list.quota.length > 0}}">
+  <view class="data-list">
+    <view class="li" wx:for="{{list.quota}}" wx:for-item="quota" wx:key="qg"  bindtap="checkQuota" data-id="{{quota.id}}">
+      <view class="liA">开始时间：{{quota.start_time}}  结束时间：{{quota.end_time}}</view>
+      <view class="liB">{{quota.title}}</view>
+      <view class="liC">计划用量：{{quota.num}}  实际用量：{{quota.consumption}}  偏差：
+        <text wx:if="{{quota.diff  >= 0 }}" style="color:green">{{quota.diff}}</text>
+        <text wx:if="{{quota.diff  < 0 }}" style="color:red">{{quota.diff}}</text>
+        <text wx:if="{{quota.diff  == '--' }}" style="color:#ccc">{{quota.diff}}(未完成)</text>
+      </view>
+      <view class="clear"></view>
+    </view>
+  </view>
+  <view class="clear"></view>
+  </view>
+</view>
+

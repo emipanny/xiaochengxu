@@ -21,6 +21,7 @@ function formatDate(date) {
 }
 function formatDateUnix(date) {
   date = date + " 00:00:00";
+  date = date.replace(/-/g, '/'); 
   date = Date.parse(new Date(date)) / 1000;
   return date;
 }

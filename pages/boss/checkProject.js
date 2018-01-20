@@ -94,5 +94,14 @@ Page({
           user: list
         })
       })
+  },
+  checkERP: function () {
+    let id = this.data.id;
+    api.navigateTo("./checkERP?id=" + id)
+
+  },
+  check: function () {
+    let id = this.data.id;
+    api.navigateTo("./preview?id=" + id)
   }
 })

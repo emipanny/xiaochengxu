@@ -6,13 +6,14 @@ Page({
     option: null
   },
   login: function () {
+    
     wx.getSetting({
-      success(res) {
+      success: res => {
         //判断用户信息是否授权
         if (!res['scope.userInfo']) {
           wx.authorize({
             scope: 'scope.userInfo',
-            success() {
+            success: () => {
               this.checkUser();
             },
             fail() { //发现未授权，弹出警告，指引用户授权
@@ -52,9 +53,9 @@ Page({
         userInfo: userInfo
       })
     })
-    if (option.url) that.data.option = option.url
+    if (option.url) this.data.option = option.url
     wx.setNavigationBarTitle({
-      title: '确认登陆'
+      title: 'BIM钉项目经理版'
     })
   },
   checkUser: function () {
@@ -69,6 +70,7 @@ Page({
             code: res.code,
             encryptedData: res.encryptedData,
             iv: res.iv,
+            type_id: 1
           },
           success: res => {
             if (res.data.errcode) {
@@ -76,25 +78,19 @@ Page({
               api.redirectTo('../pages/index/error');
             }
             else {
-              if (res.data.type_id == 0)
-                api.redirectTo('../index/userType');
-              else if (app.globalData.moveback) {
+              if (app.globalData.moveback) {
                 let str = app.globalData.moveback;
                 app.globalData.moveback = null;
                 api.redirectTo(str);
               }
-              else if (res.data.type_id == 1)
+              else {
+                wx.setStorage({
+                  key: "userType",
+                  data: "boss"
+                })
                 api.redirectTo("../boss/index");
-              else if (res.data.type_id == 2)
-                api.redirectTo("../foreman/index");
-              else if (res.data.type_id == 3)
-                api.redirectTo("../supervisor/index");
-              else if (res.data.type_id == 4)
-                api.redirectTo("../designer/index");
-              else if (res.data.type_id == 5)
-                api.redirectTo("../customer/index");
-              else if (res.data.type_id == 6)
-                api.redirectTo("../purchase/index");
+
+              }
               wx.setStorageSync('sessionID', res.data.sessionID);
 
             }

@@ -2,6 +2,8 @@
 <view class="msg">
   <text>项目名称：</text>
   <text>{{title}}</text>
-  <button wx:if="{{userType == 1}}" open-type="share">分享给相关人员</button>
-  <view wx:if="{{userType != 1}}" class="midAct" hover-class="midActHover" bindtap="addProject">把该项目添加到我的项目中</view>
+  <view>保存二维码，发送给其他人</view>
+  <image src="https://xcx.envisioneer.cn/qrcode?url=/index/allot?pid={{id}}" mode="aspectFill"  data-url="https://xcx.envisioneer.cn/qrcode?url=/index/allot?pid={{id}}" bindtap='showImg'></image>
+
+  <view  class="midAct" hover-class="midActHover" bindtap="back">返回主页</view>
 </view>

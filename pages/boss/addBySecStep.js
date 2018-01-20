@@ -4,6 +4,7 @@ Page({
 
   data: {
     text: "",
+    type_id: 0,
     header: {
       first_class: "#35b3ca",
       first_text_class: "#35b3ca",
@@ -18,6 +19,7 @@ Page({
   getqrcode: function () {
     wx.scanCode({
       success: (res) => {
+        console.log(res);
         if (!res.result){
           wx.showModal({
             title: '提示',
@@ -31,9 +33,11 @@ Page({
           let url = res.result;
           api.request(url,{})
             .then( (res) => {
+              console.log(res);
               if(res.qrcode) {
                 this.setData({
-                  text: res.qrcode
+                  text: res.qrcode,
+                  type_id: res.type_id
                 })
               }
             })
@@ -45,6 +49,7 @@ Page({
   },
   nextStep: function () {
     let qrcode = this.data.text;
+    let {type_id} = this.data;
     if (!qrcode) {
       wx.showModal({
         title: '提示',
@@ -70,7 +75,7 @@ Page({
       else {
         let url = "https://xcx.envisioneer.cn/boss/createProject";
         date = util.formatDateUnix(date);
-        let data = { title, schedule, amount, name, address, latitude, longitude, detailed_address, content, date, qrcode, distance};
+        let data = { title, schedule, amount, name, address, latitude, longitude, detailed_address, content, date, qrcode, distance, type_id};
         api.request(url, data)
           .then( (res) => {
             wx.redirectTo({

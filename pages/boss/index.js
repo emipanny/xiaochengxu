@@ -11,6 +11,7 @@ Page({
     countOn: 0,
     countWill: 0,
     newMessage: 0,
+    noRead: 0,
   },
   //事件处理函数
   bindViewTap: function () {
@@ -40,7 +41,7 @@ Page({
   },
   goHelp: function () {
     wx.navigateTo({
-      url: '../index/allot'
+      url: '../index/help'
     })
   },
   onLoad: function () {
@@ -50,7 +51,7 @@ Page({
       })
     })
     wx.setNavigationBarTitle({
-      title: '项目管理'
+      title: 'BIM钉项目经理版'
     })
   },
   onShow: function () {
@@ -68,12 +69,14 @@ Page({
         res.will.forEach(item => {
           all += item.count || 0;
         })
+        
         all - saveCount > 0 ? newMessage = all - saveCount : newMessage = 0;
         this.setData({
           countEnd: res.end.length,
           countOn: res.on.length,
           countWill: res.will.length,
-          newMessage: newMessage
+          newMessage: newMessage,
+          noRead: res.noRead
         })
       })
   }

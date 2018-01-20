@@ -209,7 +209,18 @@ exports.redirectTo = (url) => {
     wx.redirectTo({
       url: url
     })
-    setTimeout( () => {
+    setTimeout(() => {
+      app.globalData.isNavigateTo = false;
+    }, 1000)
+  }
+}
+exports.reLaunch = (url) => {
+  if (!app.globalData.isNavigateTo) {
+    app.globalData.isNavigateTo = true;
+    wx.reLaunch({
+      url: url
+    })
+    setTimeout(() => {
       app.globalData.isNavigateTo = false;
     }, 1000)
   }

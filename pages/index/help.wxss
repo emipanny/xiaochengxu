@@ -33,64 +33,51 @@
     left: 0;
     z-index: 999;
 }  
+.tab-lists {
+  width:200%;
+  height:40px;
+}
 .swiper-tab-list{  
     line-height: 40px;
     font-size: 25rpx;  
     display: inline-block;  
-    width: 50%;  
+    width: 20%;  
     color: #35b3ca;
     background: #fff;
     border-right: 1rpx solid #35b3ca;
     box-sizing: border-box;
 }  
 swiper-item {
+  width: 100%;
+  padding: 20px;
   height: auto;
   border: 1px solid #ccc;
   overflow-y: auto;
+  box-sizing: border-box;
+  background: #fff;
 }
 .swiper-box {
+  margin-top: 40px; 
 }
 .on{ 
     color: #fff;  
     background: #35b3ca;
 }
-.user {
-  width: 95%;
-  height: 30px;
-  border: 1px solid #ccc;
-  margin: 10px 0;
+.title {
+  width: 100%;
+  height: 40px;
+  text-align: center;
+  line-height: 40px;
+
 }
-.user view {
-  display: inline-block;
-  margin-left: 5%;
-  height: 30px;
+swiper-item text {
+  width: 100%;
   line-height: 30px;
-  box-sizing: border-box;
-  overflow: hidden;
+  font-size: 14px;
+  display: inline-block;  
+  
 }
-.user .username {
-  width: 45%;
-}
-.user .confirmN {
-  width: 20%;
-  color: #35b3ca;
-  margin: 0;
-  padding: 0;
-  text-align: center;
-}
-.user .confirmY {
-  width: 20%;
-  margin: 0;
-  padding: 0;
-  text-align: center;
-}
-.user .del {
-  width: 20%;
-  color: #35b3ca;
-  margin: 0;
-  padding: 0;
-  text-align: center;
-}
-.userType {
-  margin-top: 20px;
+swiper-item image {
+  width: 100%;
+  
 }

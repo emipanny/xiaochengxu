@@ -1,0 +1,40 @@
+
+<view class="stage" wx:for="{{stage}}" wx:if="{{stage.length > 0}}" wx:for-item="list" wx:key="rg">
+  <view class="stageName">{{list.title}}</view>
+  <view class="quota" wx:if="{{list.date.length > 0}}">
+    <view class="list" wx:for="{{list.date}}"  wx:if="{{date.quota.length > 0 || date.material.length > 0}}" wx:for-item="date" wx:key="dg" >
+      <view class="date">{{date.date}}</view>
+      <view class="data" wx:if="{{date.quota.length > 0}}">
+        <view class="data-title">施工</view>
+        <view class="data-list">
+          <view class="li" wx:for="{{date.quota}}" wx:for-item="quota" wx:key="qg"  bindtap="checkQuota" data-id="{{quota.id}}" style="{{quota.state == 1 ? 'background:#35b3ca; color:#fff' : ''}}">
+            <view class="liA" style="{{quota.state == 1 ? 'background:#35b3ca; color:#fff' : ''}}">
+              <view class="liA_1">第{{quota.dayNum}}天/共{{quota.dayAll}}天</view>
+              <view class="liA_2">{{quota.num}}{{quota.unit}}</view>
+            </view>
+            <view class="clear"></view>
+            <view class="liB">{{quota.title}}</view>
+            <view class="check" wx:if="{{quota.state == 1}}"></view>
+          </view>
+        </view>
+        <view class="clear"></view>
+      </view>
+      <view class="data" wx:if="{{date.material.length > 0}}">
+        <view class="data-title">材料</view>
+        <view class="data-list">
+          <view class="li" wx:for="{{date.material}}" wx:for-item="material" wx:key="mg" bindtap="checkMaterial" data-id="{{material.id}}"  style="{{material.state == 1 ? 'background:#35b3ca; color:#fff' : ''}}">
+            <view class="liA"  style="{{material.state == 1 ? 'background:#35b3ca; color:#fff' : ''}}">
+              <view class="liA_1">入场时间：{{material.time}}</view>
+              <view class="liA_2">{{material.num}}{{material.unit}}</view>
+            </view>
+            <view class="clear"></view>
+            <view class="liB">{{material.title}}</view>
+            <view class="check" wx:if="{{material.state == 1}}"></view>
+          </view>
+        </view>
+        <view class="clear"></view>
+      </view>
+    </view>
+  </view>
+</view>
+

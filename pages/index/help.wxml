@@ -1,0 +1,77 @@
+
+
+<scroll-view class="swiper-tab" scroll-x style="width:{{winWidth}}px" scroll-left="{{left}}">  
+  <view class="tab-lists">
+    <view class="swiper-tab-list {{currentTab==0 ? 'on' : ''}}" data-current="0" bindtap="swichNav">界面介绍</view>  
+    <view class="swiper-tab-list {{currentTab==1 ? 'on' : ''}}" data-current="1" bindtap="swichNav">我的项目</view>  
+    <view class="swiper-tab-list {{currentTab==2 ? 'on' : ''}}" data-current="2" bindtap="swichNav">新建项目</view>  
+    <view class="swiper-tab-list {{currentTab==3 ? 'on' : ''}}" data-current="3" bindtap="swichNav">进度更新</view>  
+    <view class="swiper-tab-list {{currentTab==4 ? 'on' : ''}}" data-current="4" bindtap="swichNav">留言</view>  
+  </view>
+</scroll-view>  
+
+<swiper current="{{currentTab}}" class="swiper-box" duration="300" style="height:{{winHeight}}px" bindchange="bindChange">  
+    <swiper-item> 
+      <view class="title">界面介绍</view>
+      <image mode="widthFix" src="https://xcx.envisioneer.cn/public/images/help/image0.png"></image>
+      <text>最近完成：显示完成项目的数量</text>
+      <text>进行中的任务：显示正在施工的项目的数量</text>
+      <text>即将开始：显示将要开始的项目的数量</text>
+
+      <text>我的项目：可以查看项目详情，人员情况，项目报表ERP，项目施工进度等信息。</text>
+      <text>进度更新：显示工长确定完成的项目的信息。</text>
+      <text>留言：可以根据项目信息进行留言的查看与回复</text>
+      <text>新建项目：创建新项目</text>
+      <text>帮助手册：查看该小程序操作帮助信息</text>
+    </swiper-item>  
+
+    <swiper-item>  
+      <view class="title">我的项目</view>
+      <text>1、	查看项目列表</text>
+      <text>进入我的项目后，可以根据进行中的项目，即将开始的项目，已完成的项目，查看项目信息。</text>
+      <text>2、	查看项目信息</text>
+      <text>进入某个项目后，可以查看该项目的基本信息，产品详情，项目流程，项目报表等操作。</text>
+      <text>还可以再次进行人员分配。</text>
+      <text>3、	人员列表</text>
+      <text>查看该项目涉及到的人员，并进行管理。可以通过或者删除某个人员。</text>
+
+    </swiper-item>   
+    <swiper-item>  
+      <view class="title">新建项目</view>
+      <text>1、	填写基本信息</text>
+      <text>进入创建项目后首先填写基本信息</text>
+      <image mode="widthFix" src="https://xcx.envisioneer.cn/public/images/help/image1.png"></image>
+      <text>工期以天为单位。</text>
+      <text>其中，位置选择项目所在的地图位置，再打卡范围写上根据位置所能打卡的半径，如500米，则需要打卡的人员只能在项目位置的500米范围内打卡。</text>
+      <text>填写完成后，点击下一步进入添加详单</text>
+      <text>2、	添加详单</text>
+      <image mode="widthFix" src="https://xcx.envisioneer.cn/public/images/help/image2.png"></image>
+      <text>进入添加详单后 点击红色区域，打开二维码扫描界面，可以通过扫描二维码获取到项目详单。</text>
+      <text>二维码获取方式需与梵居网装修公司后台相关。</text>
+      <text>梵居网网址：http://new.fjjj.net</text>
+      <text>3、	二维码获取方式：</text>
+      <text>进入梵居网</text>
+      <text>选择装修公司登录，如下图</text>
+      <image mode="widthFix" src="https://xcx.envisioneer.cn/public/images/help/image3.png"></image>
+      <text>输入用户名和密码后即可进入装修公司后台。</text>
+      <text>在装修公司的后台，点击顶部“收到的装修申请”后，进入查看装修公司报价单列表，如下图：</text>
+      <image mode="widthFix" src="https://xcx.envisioneer.cn/public/images/help/image4.png"></image>
+      <text>点击右边的获取二维码即可。</text>
+      <text>小程序扫描该二维码即可完成创建项目的第二步。</text>
+      <text>点击下一步后完成创建项目。</text>
+      <text>4、	分配人员</text>
+      <text>项目创建后需要跟相应的人员进行关联。</text>
+      <text>点击分配人员，分享给工长、监理、设计师、业主。</text>
+      <text>需要对方登录小程序，并选择相应的身份后，点击分享的连接，就可以申请加入该项目。</text>
+      <text>申请成功后，经理需要进入我的项目-》刚刚创建的项目-》人员列表里 同意通过人员，通过之后该人员才可以查看并操作该项目。</text>
+
+    </swiper-item>   
+    <swiper-item>  
+      <view class="title">进度更新</view>
+      <text>进度更新用来查看由工长提交的项目完成进度和时间。</text>
+    </swiper-item>   
+    <swiper-item>  
+      <view class="title">留言</view>
+      <text>根据项目查看留言并回复</text>
+    </swiper-item>   
+</swiper>  

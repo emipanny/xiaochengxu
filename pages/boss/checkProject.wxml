@@ -3,13 +3,14 @@
 <view class="swiper-tab">  
     <view class="swiper-tab-list {{currentTab==0 ? 'on' : ''}}" data-current="0" bindtap="swichNav">基本信息</view>  
     <view class="swiper-tab-list {{currentTab==1 ? 'on' : ''}}" data-current="1" bindtap="swichNav">人员列表</view>  
-    <view class="swiper-tab-list {{currentTab==2 ? 'on' : ''}}" data-current="2" bindtap="swichNav">打分详情</view>  
 </view>  
 
 <swiper current="{{currentTab}}" class="swiper-box" duration="300" style="height:{{winHeight}}px" bindchange="bindChange">  
     <swiper-item>  
       <view class="msg">
         <view class="midAct" bindtap="checkgoods">查看产品详情</view>
+        <view class="midAct" bindtap="check" wx:if="{{info.state == 2}}">查看项目流程</view>
+        <view class="midAct" wx:if="{{info.state == 2}}" bindtap="checkERP">查看项目报表</view>
         <text>项目名称</text>
         <text>{{info.title}}</text>
         <text>开工时间</text>
@@ -33,28 +34,32 @@
     <swiper-item>  
       <view class="msg">
         <text class="userType">工长</text>
-        <view class="user" wx:for="{{user}}" wx:key="artificial" wx:for-item="user" wx:if="{{user.type_id == 1}}">
+        <view class="user" wx:for="{{user}}" wx:key="artificial" wx:for-item="user" wx:if="{{user.type_id == 2}}">
           <view class="username" style="color:{{user.state == 0 ? '#ccc' : '#35b3ca'}}">{{user.nickname}}</view>
           <view class="confirmN" wx:if="{{user.state == 0}}" data-id="{{user.id}}" bindtap="passUser">确认</view>
           <view class="confirmY" wx:if="{{user.state == 1}}">已确认</view>
           <view class="del"  data-id="{{user.id}}" bindtap="delUser">删除</view>
         </view>
         <text class="userType">监理</text>
+        <view class="user" wx:for="{{user}}" wx:key="artificial" wx:for-item="user" wx:if="{{user.type_id == 3}}">
+          <view class="username" style="color:{{user.state == 0 ? '#ccc' : '#35b3ca'}}">{{user.nickname}}</view>
+          <view class="confirmN" wx:if="{{user.state == 0}}" data-id="{{user.id}}" bindtap="passUser">确认</view>
+          <view class="confirmY" wx:if="{{user.state == 1}}">已确认</view>
+          <view class="del"  data-id="{{user.id}}" bindtap="delUser">删除</view>
+        </view>
         <text class="userType">设计</text>
-        <text class="userType">材料员</text>
+        <view class="user" wx:for="{{user}}" wx:key="artificial" wx:for-item="user" wx:if="{{user.type_id == 4}}">
+          <view class="username" style="color:{{user.state == 0 ? '#ccc' : '#35b3ca'}}">{{user.nickname}}</view>
+          <view class="confirmN" wx:if="{{user.state == 0}}" data-id="{{user.id}}" bindtap="passUser">确认</view>
+          <view class="confirmY" wx:if="{{user.state == 1}}">已确认</view>
+          <view class="del"  data-id="{{user.id}}" bindtap="delUser">删除</view>
+        </view>
         <text class="userType">业主</text>
-      </view>
-    </swiper-item>  
-    <swiper-item>  
-      <view wx:if="{{goods.length > 0}}">
-        <view class="pList" wx:for="{{goods}}" id ="on_{{item.id}}" wx:key="on"  data-name="{{item.id}}" bindtap="showAct">
-          <view class="pLInfo" id="pli_on_{{item.id}}">
-            <view class="pliTitle">{{item.title}}</view>
-            <view class="pliDate">
-              开工日期：{{item.startTime}} 工期剩余：{{item.endTime}}天 
-              <text  class="goto" >>></text>
-            </view>
-          </view>
+        <view class="user" wx:for="{{user}}" wx:key="artificial" wx:for-item="user" wx:if="{{user.type_id == 5}}">
+          <view class="username" style="color:{{user.state == 0 ? '#ccc' : '#35b3ca'}}">{{user.nickname}}</view>
+          <view class="confirmN" wx:if="{{user.state == 0}}" data-id="{{user.id}}" bindtap="passUser">确认</view>
+          <view class="confirmY" wx:if="{{user.state == 1}}">已确认</view>
+          <view class="del"  data-id="{{user.id}}" bindtap="delUser">删除</view>
         </view>
       </view>
     </swiper-item>  

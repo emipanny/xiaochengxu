@@ -28,6 +28,12 @@
 					"name": "留言",
 					"pathName": "pages/foreman/talkSend",
 					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "帮助",
+					"pathName": "pages/index/help",
+					"query": ""
 				}
 			]
 		}
